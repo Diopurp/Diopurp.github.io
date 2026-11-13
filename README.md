@@ -1,4 +1,4 @@
-# Manas Hanwat — Personal Portfolio Website (V6.2)
+# Manas Hanwat — Personal Portfolio Website
 ### Automation, Robotics, Control Systems, Robot Learning & Engineering Archive
 
 A minimalist, high-craft personal archive featuring dual realistic full-page Japanese aesthetic environments:

@@ -1,5 +1,5 @@
 /**
- * Manas Hanwat — Personal Portfolio Website (V6.2)
+ * Manas Hanwat — Personal Portfolio Website
  * Organic Interactive Particle System, Theme Persistence, Live Clock & Easter Egg Telemetry
  */
 
@@ -164,7 +164,7 @@
 
   // -------------------------------------------------------------
   // 5. ORGANIC FLUID PARTICLE SYSTEM
-  // Preserving V6.1 physics & interactions, adapted to Moonlit Japan colors
+  // Organic fluid drift & responsive interactions, adapted to Moonlit Japan colors
   // -------------------------------------------------------------
   const canvas = document.getElementById('particles');
   if (!canvas) return;
