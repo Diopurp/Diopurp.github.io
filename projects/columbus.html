@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Columbus Maximus — Autonomous indoor differential-drive mobile robot. ROS 2, LiDAR SLAM, UWB localization and sensor fusion.">
+  <title>Columbus Maximus — Autonomous Indoor Mobile Robot | Manas Hanwat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Serif+JP:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <!-- Full-Page Background Artwork: Continues behind all sections as user scrolls -->
+  <div class="bg-artwork-container" aria-hidden="true">
+    <div class="bg-art bg-art-day"></div>
+    <div class="bg-art bg-art-night"></div>
+  </div>
+
+  <!-- Interactive Canvas Particle System -->
+  <canvas id="particles"></canvas>
+
+  <!-- Procedural Grain Texture -->
+  <div class="grain"></div>
+
+  <!-- Navigation Header -->
+  <header>
+    <a class="brand" href="../index.html">
+      <b>M.</b>
+      <span>MANAS HANWAT <i>PERSONAL ARCHIVE</i></span>
+    </a>
+    <nav>
+      <a href="../index.html#projects">← All projects</a>
+      <a href="../index.html#about">About</a>
+    </nav>
+    <div class="right">
+      <time id="clock">--:-- IST</time>
+      <button id="theme" aria-label="Toggle day and night theme">☾</button>
+    </div>
+  </header>
+
+  <main class="detail wrap">
+    <a class="back" href="../index.html#projects">← BACK TO HOMEPAGE ARCHIVE</a>
+    <p class="eyebrow">
+      <span class="pulse-dot"></span>
+      PROJECT 001 / AUTONOMOUS ROBOTICS
+    </p>
+    <h1>Columbus <em>Maximus.</em></h1>
+    <p class="deck">
+      An autonomous indoor differential-drive mobile robot engineered to solve GPS-denied localization and navigation through multi-sensor fusion, combining 2D LiDAR SLAM, Ultra-Wideband (UWB) ranging, and encoder odometry in ROS 2.
+    </p>
+
+    <!-- Project Visual Header -->
+    <div class="detail-art">
+      <div class="scan"></div>
+      <span>RESEARCH & DEVELOPMENT / EMBEDDED ROBOTICS</span>
+      <b>COLUMBUS<br>MAXIMUS</b>
+    </div>
+
+    <!-- Quick Technical Facts -->
+    <div class="facts">
+      <span>COMPUTE: <strong>Raspberry Pi 4B (Ubuntu 22.04)</strong></span>
+      <span>MIDDLEWARE: <strong>ROS 2 Humble Hawksbill</strong></span>
+      <span>LOW-LEVEL: <strong>ESP32 Microcontroller</strong></span>
+      <span>LIDAR: <strong>LDS-02 2D Scanner</strong></span>
+      <span>UWB: <strong>Decawave DWM3001C</strong></span>
+      <span>STATUS: <strong>Active Testing & Tuning</strong></span>
+    </div>
+
+    <!-- 01: PROJECT OVERVIEW -->
+    <section class="detail-section">
+      <p class="eyebrow">01 / PROJECT OVERVIEW</p>
+      <h2>An autonomous explorer for <em>indoor spaces.</em></h2>
+      <p>
+        Columbus Maximus is a ground-up autonomous differential-drive robot designed to navigate indoor environments where global navigation satellite systems (GNSS / GPS) are completely unavailable.
+      </p>
+      <p>
+        Indoor mobile robots face substantial localization drift when relying solely on wheel odometry due to wheel slip, floor imperfections, and mechanical backlash. Conversely, LiDAR-based scan matching (SLAM) can become degraded in featureless corridors or dynamically changing environments. Columbus Maximus addresses this by integrating complementary sensing modalities: high-rate dead reckoning via wheel encoders, 2D planar LiDAR for obstacle awareness and geometric mapping, and fixed Ultra-Wideband (UWB) anchor nodes for global absolute ranging.
+      </p>
+    </section>
+
+    <!-- 02: MOTIVATION & OBJECTIVES -->
+    <section class="detail-section">
+      <p class="eyebrow">02 / MOTIVATION & OBJECTIVES</p>
+      <h2>Why build from <em>first principles?</em></h2>
+      <p>
+        Commercial autonomous mobile robots often rely on expensive industrial LiDARs or proprietary black-box localization packages. The core objective of Columbus Maximus is pedagogical and technical rigor: constructing an open, robust, and cost-effective autonomous system from the bare chassis up, understanding every mathematical transform, state estimation filter, and communication layer.
+      </p>
+      <div class="trouble-list">
+        <div class="trouble-item">
+          <strong>1. Bounded Drift Localization</strong>
+          <p>Eliminate unbounded cumulative position drift in indoor environments through an Extended Kalman Filter (EKF) combining high-rate local odometry with absolute UWB anchor coordinates.</p>
+        </div>
+        <div class="trouble-item">
+          <strong>2. Modular Dual-Tier Architecture</strong>
+          <p>Decouple real-time deterministic motor control and sensor acquisition (running on bare-metal / RTOS ESP32) from high-level perception, SLAM, and path planning (running in Linux ROS 2).</p>
+        </div>
+        <div class="trouble-item">
+          <strong>3. Reproducible Navigation Stack</strong>
+          <p>Deploy the ROS 2 Nav2 framework to achieve autonomous point-to-point waypoint navigation, costmap-based obstacle avoidance, and deterministic recovery behaviors.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03: SYSTEM ARCHITECTURE -->
+    <section class="detail-section">
+      <p class="eyebrow">03 / SYSTEM ARCHITECTURE</p>
+      <h2>Multi-sensor data flow & <em>pose estimation.</em></h2>
+      <p>
+        The system implements a tiered architecture. Sensor data from high-frequency wheel encoders and UWB transceivers are pre-processed and fed into an Extended Kalman Filter (via the <code>robot_localization</code> package), while the 2D LiDAR simultaneously publishes planar scans for obstacle costmaps and 2D occupancy grid generation.
+      </p>
+
+      <div class="architecture-box">
+        <div class="node-grid">
+          <div class="node-box">
+            <strong>Wheel Encoders</strong>
+            <small>High Rate (50Hz) · ESP32</small>
+          </div>
+          <div class="node-box">
+            <strong>DWM3001C UWB</strong>
+            <small>Absolute Ranging (10Hz)</small>
+          </div>
+          <div class="node-box">
+            <strong>LDS-02 2D LiDAR</strong>
+            <small>Planar Scans (5.5Hz)</small>
+          </div>
+        </div>
+
+        <div class="flow-down">↓　　　　↓　　　　↓</div>
+
+        <div class="fusion-box">
+          <strong>EXTENDED KALMAN FILTER (EKF) FUSION</strong>
+          <small>Fuses high-rate dead reckoning with bounded absolute ranges</small>
+        </div>
+
+        <div class="flow-down">↓</div>
+
+        <div class="node-grid outputs-grid">
+          <div class="node-box">
+            <strong>Filtered Pose /odom → base_link</strong>
+            <small>Fused State & Covariance Matrix</small>
+          </div>
+          <div class="node-box">
+            <strong>ROS 2 Nav2 Navigation Stack</strong>
+            <small>Global/Local Costmaps & Path Tracking</small>
+          </div>
+        </div>
+      </div>
+      <p class="note" style="font: 9.5px var(--mono); color: var(--muted); margin-top: 10px;">
+        * The diagram reflects the intended and partially validated system dataflow. Exact topic names, QoS profiles and covariance values are continually updated in the workspace.
+      </p>
+    </section>
+
+    <!-- 04: HARDWARE COMPONENTS -->
+    <section class="detail-section">
+      <p class="eyebrow">04 / HARDWARE COMPONENTS</p>
+      <h2>Physical components & <em>embedded electronics.</em></h2>
+      <p>
+        Each component was chosen to strike a pragmatic balance between low power consumption, cost, and raw computational capability.
+      </p>
+
+      <div class="specs-grid">
+        <article class="spec-card">
+          <span class="badge-tag badge-operational">OPERATIONAL</span>
+          <small>PRIMARY COMPUTE</small>
+          <b>Raspberry Pi 4B (4GB)</b>
+          <p>Runs headless Ubuntu 22.04 LTS and the ROS 2 Humble middleware. Handles high-level perception, transforms, SLAM, and Nav2 costmap processing.</p>
+        </article>
+
+        <article class="spec-card">
+          <span class="badge-tag badge-operational">OPERATIONAL</span>
+          <small>LOW-LEVEL CONTROLLER</small>
+          <b>ESP32 Microcontroller</b>
+          <p>Dual-core 240MHz microcontroller. Dedicated to quadrature encoder pulse counting, hardware timer interrupts, closed-loop PID velocity control, and serial telemetry bridge.</p>
+        </article>
+
+        <article class="spec-card">
+          <span class="badge-tag badge-operational">OPERATIONAL</span>
+          <small>2D RANGE SENSING</small>
+          <b>LDS-02 360° LiDAR</b>
+          <p>2D planar laser distance sensor. 360-degree field of view, 5.5 Hz rotation frequency, measuring distances up to 3.5 meters for obstacle avoidance and SLAM mapping.</p>
+        </article>
+
+        <article class="spec-card">
+          <span class="badge-tag badge-testing">TESTING / TUNING</span>
+          <small>ABSOLUTE LOCALIZATION</small>
+          <b>Decawave DWM3001C UWB</b>
+          <p>Ultra-Wideband RF transceivers. 1 rover-mounted tag node measuring time-of-flight (ToF) distance to 3–4 static anchors placed at measured room coordinates.</p>
+        </article>
+
+        <article class="spec-card">
+          <span class="badge-tag badge-operational">OPERATIONAL</span>
+          <small>DRIVE & ACTUATION</small>
+          <b>DC Motors + Quadrature Encoders</b>
+          <p>Differential-drive chassis powered by metal gearmotors with optical/magnetic encoder feedback for precise angular velocity and wheel travel measurement.</p>
+        </article>
+
+        <article class="spec-card">
+          <span class="badge-tag badge-operational">OPERATIONAL</span>
+          <small>POWER DISTRIBUTION</small>
+          <b>Isolated Dual-Rail Battery Subsystem</b>
+          <p>Dedicated high-discharge lithium battery packs with step-down buck converters, separating high-current motor drivers from sensitive compute logic to eliminate voltage sags.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 05: SOFTWARE ARCHITECTURE -->
+    <section class="detail-section">
+      <p class="eyebrow">05 / SOFTWARE ARCHITECTURE</p>
+      <h2>Deterministic communications & <em>node topology.</em></h2>
+      <p>
+        The software stack is organized into modular ROS 2 nodes, adhering strictly to standard message conventions:
+      </p>
+      <div class="trouble-list">
+        <div class="trouble-item">
+          <strong>ESP32 Micro-ROS / Serial Driver Node</strong>
+          <p>Publishes <code>/wheel_ticks</code> and raw odometry messages at 50 Hz. Subscribes to <code>/cmd_vel</code> twist commands and converts linear/angular velocity targets into left/right wheel PWM signals via discrete PID control.</p>
+        </div>
+        <div class="trouble-item">
+          <strong>LiDAR Driver Node</strong>
+          <p>Publishes standard <code>sensor_msgs/msg/LaserScan</code> on topic <code>/scan</code> with correct timestamp synchronization and frame transform ID (<code>laser_frame</code>).</p>
+        </div>
+        <div class="trouble-item">
+          <strong>UWB Ranging & Trilateration Node</strong>
+          <p>Interrogates fixed anchor nodes using two-way ranging (TWR). Publishes individual range measurements and converts multi-anchor distances into bounded coordinates via non-linear least-squares trilateration.</p>
+        </div>
+        <div class="trouble-item">
+          <strong>TF2 Transform Pipeline</strong>
+          <p>Maintains dynamic and static coordinate tree: <code>map</code> → <code>odom</code> → <code>base_footprint</code> → <code>base_link</code> → <code>laser_frame</code>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06: LOCALIZATION METHODOLOGY -->
+    <section class="detail-section">
+      <p class="eyebrow">06 / LOCALIZATION METHODOLOGY</p>
+      <h2>Sensor fusion: balancing <em>drift and accuracy.</em></h2>
+      <p>
+        Differential-drive wheel odometry provides extremely smooth, low-latency relative motion estimates at 50Hz, but suffers from cumulative dead-reckoning error caused by wheel slippage, carpet compliance, and unequal wheel diameters.
+      </p>
+      <p>
+        To arrest drift, UWB anchors deliver global range measurements that do not accumulate error over time, though they exhibit millimeter-to-centimeter variance and susceptibility to indoor multipath reflections.
+      </p>
+      <p>
+        An Extended Kalman Filter (EKF) is configured via the <code>robot_localization</code> package. The state vector tracks position $(x, y, z)$, orientation $(\phi, \theta, \psi)$, and linear/angular velocities. The process model uses odometry while the measurement update ingests absolute UWB trilateration estimates with tuned covariance matrices:
+      </p>
+      <div class="trouble-item">
+        <strong>Current Implementation Status</strong>
+        <p>Wheel odometry state estimation is fully operational and calibrated. UWB anchor ranging is functional in static line-of-sight testbench conditions; real-time dynamic covariance tuning under active rover movement is currently undergoing testing.</p>
+      </div>
+    </section>
+
+    <!-- 07: MAPPING & NAVIGATION -->
+    <section class="detail-section">
+      <p class="eyebrow">07 / MAPPING & NAVIGATION</p>
+      <h2>Cartography & <em>Nav2 stack integration.</em></h2>
+      <p>
+        For environment mapping, 2D planar LiDAR scans and wheel odometry are ingested by <strong>SLAM Toolbox</strong> in synchronous mapping mode to generate high-resolution 2D occupancy grid maps (<code>nav_msgs/msg/OccupancyGrid</code>).
+      </p>
+      <p>
+        Once a map is generated, the <strong>ROS 2 Nav2</strong> stack manages autonomous path planning:
+      </p>
+      <ul style="color: var(--muted); font-size: 13.5px; line-height: 1.95; padding-left: 20px;">
+        <li><strong>Global Costmap:</strong> Incorporates static occupancy layers and inflated obstacle safety zones.</li>
+        <li><strong>Local Costmap:</strong> Real-time rolling window updated with active LiDAR scans to detect unexpected or dynamic obstacles.</li>
+        <li><strong>Trajectory Controllers:</strong> Evaluating Regulated Pure Pursuit and DWB local planners for smooth differential-drive path tracking.</li>
+      </ul>
+      <p>
+        <em>Current Status:</em> 2D SLAM mapping has been verified in structured indoor room tests via manual teleoperation. Autonomous waypoint tracking with Nav2 costmaps is currently in active development.
+      </p>
+    </section>
+
+    <!-- 08: DEVELOPMENT PROGRESS & HONEST LOG -->
+    <section class="detail-section">
+      <p class="eyebrow">08 / DEVELOPMENT PROGRESS</p>
+      <h2>Iterative engineering <em>milestones.</em></h2>
+      <p>
+        An honest account of verified builds versus systems undergoing calibration:
+      </p>
+
+      <ul class="dev-log">
+        <li>
+          <b>01</b>
+          <div>
+            <strong>Base Chassis Kinematics & Motor Driver</strong>
+            <p>Designed differential-drive mechanical layout, mounted DC gearmotors with optical encoders, and wrote ESP32 PID velocity loop with serial telemetry.</p>
+          </div>
+          <small class="badge-tag badge-operational">VERIFIED</small>
+        </li>
+        <li>
+          <b>02</b>
+          <div>
+            <strong>ROS 2 Workspace & Compute Integration</strong>
+            <p>Configured headless Ubuntu 22.04 LTS on Raspberry Pi 4B, deployed ROS 2 Humble Hawksbill, and established bi-directional serial bridge for <code>/cmd_vel</code> and <code>/odom_raw</code>.</p>
+          </div>
+          <small class="badge-tag badge-operational">VERIFIED</small>
+        </li>
+        <li>
+          <b>03</b>
+          <div>
+            <strong>LiDAR Pipeline & 2D SLAM Mapping</strong>
+            <p>Integrated LDS-02 2D LiDAR, verified coordinate frame transforms (<code>laser_frame</code>), and successfully generated preliminary room occupancy maps with SLAM Toolbox.</p>
+          </div>
+          <small class="badge-tag badge-operational">VERIFIED</small>
+        </li>
+        <li>
+          <b>04</b>
+          <div>
+            <strong>UWB Anchor Network & Ranging Benchmarks</strong>
+            <p>Flashed DWM3001C modules, deployed 4 static anchors, and verified two-way ranging (TWR) distance measurements on static test stands.</p>
+          </div>
+          <small class="badge-tag badge-testing">IN TESTING</small>
+        </li>
+        <li>
+          <b>05</b>
+          <div>
+            <strong>EKF Multi-Sensor Fusion Tuning</strong>
+            <p>Configuring <code>robot_localization</code> node to fuse wheel odometry velocities with UWB trilateration position estimates; tuning measurement covariance matrices to reject multipath noise.</p>
+          </div>
+          <small class="badge-tag badge-testing">IN TUNING</small>
+        </li>
+        <li>
+          <b>06</b>
+          <div>
+            <strong>Autonomous Nav2 Waypoint Navigation</strong>
+            <p>Tuning inflation radius parameters, global Dijkstra/NavFn planner, and local controller for reliable autonomous path execution without human intervention.</p>
+          </div>
+          <small class="badge-tag badge-planned">IN DEVELOPMENT</small>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 09: CHALLENGES & TROUBLESHOOTING -->
+    <section class="detail-section">
+      <p class="eyebrow">09 / CHALLENGES & TROUBLESHOOTING</p>
+      <h2>Real-world engineering <em>hurdles.</em></h2>
+      <p>
+        Building physical robots inevitably uncovers discrepancy between theoretical simulation and physical hardware:
+      </p>
+
+      <div class="trouble-list">
+        <div class="trouble-item">
+          <strong>Wheel Slip & Floor Surface Variability</strong>
+          <p><em>Symptom:</em> Rapid angular heading drift during zero-radius turns on smooth tiled flooring.<br>
+          <em>Remedy:</em> Added software-limited angular acceleration profiles in motor firmware, and incorporated non-zero covariance values on angular velocity in the EKF.</p>
+        </div>
+        <div class="trouble-item">
+          <strong>UWB Non-Line-of-Sight (NLOS) Multipath Reflections</strong>
+          <p><em>Symptom:</em> Sudden 20–40 cm range jumps when direct path between rover and anchor is obstructed by metal cabinets or masonry walls.<br>
+          <em>Remedy:</em> Designing outlier rejection filters (Mahalanobis distance thresholding) to discard high-residual range samples before passing coordinates to the state estimator.</p>
+        </div>
+        <div class="trouble-item">
+          <strong>Clock Synchronization Across Compute Tiers</strong>
+          <p><em>Symptom:</em> <code>TF_OLD_DATA</code> warnings in ROS 2 due to slight millisecond drift between the ESP32 internal clock and Raspberry Pi system time.<br>
+          <em>Remedy:</em> Synchronized time headers in serial packets, with the Raspberry Pi assigning reception timestamps to encoder frames.</p>
+        </div>
+        <div class="trouble-item">
+          <strong>Motor Inductive Noise & Logic Line Interference</strong>
+          <p><em>Symptom:</em> Occasional I2C bus lockups when motors drew stall currents during sudden reversals.<br>
+          <em>Remedy:</em> Separated motor and logic power rails with optocouplers, installed flyback diodes and ceramic snubber capacitors directly across motor terminals.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10: FUTURE IMPROVEMENTS -->
+    <section class="detail-section">
+      <p class="eyebrow">10 / FUTURE ROADMAP</p>
+      <h2>Planned research & <em>next iterations.</em></h2>
+      <p>
+        As the core localization pipeline matures, planned technical expansions include:
+      </p>
+      <div class="specs-grid">
+        <article class="spec-card">
+          <span class="badge-tag badge-planned">FUTURE PLAN</span>
+          <small>INERTIAL SENSING</small>
+          <b>9-DOF IMU Sensor Fusion</b>
+          <p>Integrate a calibrated BNO055 or ICM-20948 IMU to provide high-frequency gyroscope yaw rate integration directly into the EKF.</p>
+        </article>
+
+        <article class="spec-card">
+          <span class="badge-tag badge-planned">FUTURE PLAN</span>
+          <small>3D PERCEPTION</small>
+          <b>Depth Camera Integration</b>
+          <p>Mount an RGB-D depth sensor (Intel RealSense or OAK-D) for 3D point-cloud obstacle detection and visual loop closure verification.</p>
+        </article>
+
+        <article class="spec-card">
+          <span class="badge-tag badge-planned">FUTURE PLAN</span>
+          <small>TELEMETRY</small>
+          <b>Real-Time Web Diagnostics</b>
+          <p>Implement a lightweight WebSocket-based dashboard for live LiDAR scan plotting, UWB anchor residual monitoring, and battery health telemetry.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="wrap">
+    <a class="brand" href="../index.html">
+      <b>M.</b>
+      <span>MANAS HANWAT</span>
+    </a>
+    <small>COLUMBUS MAXIMUS // ROS 2 INDOOR ROVER</small>
+    <small>© <span id="year"></span> MANAS HANWAT</small>
+  </footer>
+
+  <div id="toast"></div>
+  <script src="../script.js"></script>
+</body>
+</html>
