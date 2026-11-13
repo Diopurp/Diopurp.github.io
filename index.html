@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Manas Hanwat — Engineering, robotics and autonomous systems. Student at VJTI, Mumbai.">
+  <meta name="theme-color" content="#f5f2eb">
+  <title>Manas Hanwat — Personal Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Serif+JP:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Full-Page Background Artwork: Continues behind all sections as user scrolls -->
+  <div class="bg-artwork-container" aria-hidden="true">
+    <div class="bg-art bg-art-day"></div>
+    <div class="bg-art bg-art-night"></div>
+  </div>
+
+  <!-- Interactive Canvas Particle System (Golden-Angle Fibonacci Spiral & Bioluminescent Drift) -->
+  <canvas id="particles"></canvas>
+
+  <!-- Procedural Grain Texture -->
+  <div class="grain"></div>
+
+  <!-- Navigation Header -->
+  <header>
+    <a class="brand" href="#top">
+      <b>M.</b>
+      <span>MANAS HANWAT <i>PERSONAL ARCHIVE</i></span>
+    </a>
+    <nav id="nav">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="right">
+      <time id="clock">--:-- IST</time>
+      <button id="theme" aria-label="Toggle day and night theme">☾</button>
+      <button id="menu" aria-label="Open navigation">☰</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">
+          <span class="pulse-dot"></span>
+          PERSONAL ARCHIVE / 001 · VJTI, MUMBAI
+        </p>
+        <p class="kanji-title">探究 — CURIOSITY IN MOTION</p>
+        <h1>Build with intent.<br><em>Stay curious.</em></h1>
+        <p class="hero-intro">
+          I'm <strong>Manas Hanwat</strong> — a second-year BTech Production Engineering student at <strong>VJTI, Mumbai</strong>, drawn to robotics, embedded systems and engineering. This website is an evolving personal archive: a record of what I build, the engineering underneath, and the quiet joy of understanding how complex systems work.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#projects">Explore my work <b>↘</b></a>
+          <a class="quiet-link" href="#about">About me →</a>
+        </div>
+        <div class="scroll-hint">
+          SCROLL TO EXPLORE <span></span> 01 — 02
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section (Columbus Maximus Only) -->
+    <section class="projects wrap" id="projects">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">01 / SELECTED WORK</p>
+          <h2>Things I've <em>built.</em></h2>
+        </div>
+        <p>A growing archive of physical hardware, autonomous machines and the engineering behind them.</p>
+      </div>
+
+      <a class="project-card" href="projects/columbus.html">
+        <div class="project-art">
+          <div class="scan"></div>
+          <small>FIG 001 / AUTONOMOUS INDOOR ROVER</small>
+          <strong>COLUMBUS<br><i>MAXIMUS</i></strong>
+          <label>ROS 2 · SLAM · UWB · EKF</label>
+        </div>
+        <div class="project-copy">
+          <div class="tags">
+            <span class="tag-badge">ROBOTICS</span>
+            <span class="status-badge">● IN DEVELOPMENT</span>
+          </div>
+          <h3>Columbus Maximus</h3>
+          <p>
+            An autonomous indoor differential-drive mobile robot engineered to navigate GPS-denied environments. Combines 2D LiDAR SLAM, DWM3001C UWB anchor ranging, wheel odometry and Extended Kalman Filter (EKF) sensor fusion to build maps and navigate indoors.
+          </p>
+          <div class="stack-row">
+            ROS 2 HUMBLE　·　RASPBERRY PI 4B　·　ESP32　·　LDS-02 LIDAR　·　NAV2
+          </div>
+          <b class="explore-link">Explore project documentation ↗</b>
+        </div>
+      </a>
+
+      <div class="more-coming">
+        <b>＋</b>
+        <div>
+          <strong>More work, in time.</strong>
+          <p>This archive will expand as new technical experiments and research projects take shape. Only real builds, documented honestly.</p>
+        </div>
+        <small>01 / ∞</small>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="wrap">
+        <div class="about-card">
+          <p class="eyebrow">02 / ABOUT ME</p>
+          <h2>Understanding systems from <em>first principles.</em></h2>
+          <div class="about-grid">
+            <p class="about-lead">
+              I like understanding systems — then making something useful, robust or beautiful out of what I learn.
+            </p>
+            <div class="about-body">
+              <p>
+                I am a second-year BTech student in Production Engineering at Veermata Jijabai Technological Institute (VJTI), Mumbai. My core interests lie in autonomous robotics, embedded systems, microcontrollers, control systems and physical engineering.
+              </p>
+              <p>
+                I enjoy moving fluidly between theory and physical reality: writing low-level C++ drivers on microcontrollers, analyzing kinematics and state estimation covariance, wiring hardware circuits, and tuning high-level ROS 2 navigation stacks.
+              </p>
+              <p>
+                This website is built as an evolving engineering notebook rather than a finished résumé. It documents works-in-progress, real test logs, and honest accounts of technical hurdles.
+              </p>
+              <a class="quiet-link" href="mailto:manashanwat@gmail.com">Say hello via manashanwat@gmail.com ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="wrap">
+    <a class="brand" href="#top">
+      <b>M.</b>
+      <span>MANAS HANWAT <i>PERSONAL ARCHIVE</i></span>
+    </a>
+    <small>BUILT WITH INTENT ✳ VJTI MUMBAI</small>
+    <small>© <span id="year"></span> MANAS HANWAT</small>
+  </footer>
+
+  <div id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
