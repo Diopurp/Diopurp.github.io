@@ -1,0 +1,450 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 2400" width="100%" height="100%">
+  <defs>
+    <!-- Night Stratosphere Gradients (Deep Charcoal to Midnight Blue & Muted Indigo) -->
+    <linearGradient id="night-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#070a10"/>
+      <stop offset="25%" stop-color="#0c111a"/>
+      <stop offset="55%" stop-color="#121824"/>
+      <stop offset="85%" stop-color="#182030"/>
+      <stop offset="100%" stop-color="#1e2638"/>
+    </linearGradient>
+
+    <!-- Mountain Layers under Moonlight (Natural Atmospheric Perspective) -->
+    <linearGradient id="night-mount-4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#323e52" stop-opacity="0.45"/>
+      <stop offset="60%" stop-color="#212a38" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0c111a" stop-opacity="0.05"/>
+    </linearGradient>
+
+    <linearGradient id="night-mount-3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#263142" stop-opacity="0.65"/>
+      <stop offset="65%" stop-color="#19212e" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#121824" stop-opacity="0.02"/>
+    </linearGradient>
+
+    <linearGradient id="night-mount-2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2230" stop-opacity="0.82"/>
+      <stop offset="70%" stop-color="#111622" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#182030" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <linearGradient id="night-mount-fore" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10151f" stop-opacity="0.95"/>
+      <stop offset="75%" stop-color="#0b0e16" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#1e2638" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <!-- Nocturnal Kasumi Mist & Lake Surface -->
+    <linearGradient id="night-mist" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a3548" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#1a2230" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#141a26" stop-opacity="0.5"/>
+    </linearGradient>
+
+    <linearGradient id="night-water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#161e2c" stop-opacity="0.65"/>
+      <stop offset="50%" stop-color="#111722" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0c101a" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <!-- Moon Corona & Surface Textures -->
+    <radialGradient id="moon-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f0f4fa" stop-opacity="1"/>
+      <stop offset="35%" stop-color="#d8e2ef" stop-opacity="0.85"/>
+      <stop offset="65%" stop-color="#9bb0cc" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#26344d" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="lunar-corona" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#dbe4f0" stop-opacity="0.45"/>
+      <stop offset="45%" stop-color="#7389a8" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#0c111a" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Moonlit Silver Tree Needle Highlights -->
+    <linearGradient id="night-pine-pad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3d4c63"/>
+      <stop offset="35%" stop-color="#202938"/>
+      <stop offset="100%" stop-color="#0d121c"/>
+    </linearGradient>
+
+    <linearGradient id="night-pine-light" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7e94b3"/>
+      <stop offset="100%" stop-color="#3a495e"/>
+    </linearGradient>
+
+    <!-- Night Wood Texture -->
+    <linearGradient id="night-bark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#222b3b"/>
+      <stop offset="50%" stop-color="#141b26"/>
+      <stop offset="100%" stop-color="#090d14"/>
+    </linearGradient>
+
+    <!-- Soft Diffusion Filter for Moon Haze -->
+    <filter id="moon-haze" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+
+    <filter id="cloud-blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+
+  <!-- Deep Charcoal / Midnight Base -->
+  <rect width="1600" height="2400" fill="url(#night-sky)"/>
+
+  <!-- Subtle Night Stars (Restrained Magnitude, Only in Clear High Sky) -->
+  <g fill="#c8d6e8">
+    <circle cx="120" cy="80" r="1.1" opacity="0.6"/>
+    <circle cx="280" cy="50" r="1.3" opacity="0.75"/>
+    <circle cx="430" cy="110" r="0.9" opacity="0.5"/>
+    <circle cx="610" cy="65" r="1.4" opacity="0.7"/>
+    <circle cx="780" cy="40" r="1.0" opacity="0.6"/>
+    <circle cx="940" cy="90" r="1.2" opacity="0.65"/>
+    <circle cx="1420" cy="60" r="1.3" opacity="0.7"/>
+    <circle cx="1520" cy="120" r="1.0" opacity="0.5"/>
+    <circle cx="210" cy="160" r="0.9" opacity="0.45"/>
+    <circle cx="520" cy="140" r="1.2" opacity="0.6"/>
+    <circle cx="870" cy="130" r="0.9" opacity="0.4"/>
+    <circle cx="1360" cy="150" r="1.1" opacity="0.55"/>
+  </g>
+
+  <!-- Atmospheric Silver Moon Corona -->
+  <circle cx="1200" cy="250" r="280" fill="url(#lunar-corona)" filter="url(#moon-haze)"/>
+  <circle cx="1200" cy="250" r="170" fill="url(#lunar-corona)"/>
+
+  <!-- ==================== ENORMOUS REALISTIC MOON ==================== -->
+  <g transform="translate(1200, 250)">
+    <!-- Lunar Sphere Body -->
+    <circle r="125" fill="#e8edf5"/>
+    <circle r="125" fill="url(#moon-glow)" opacity="0.75"/>
+
+    <!-- Realistic Lunar Maria (Monochromatic Monoceros & Tranquility Basins) -->
+    <g fill="#93a2b8" opacity="0.55">
+      <ellipse cx="-35" cy="-25" rx="36" ry="28" transform="rotate(-15 -35 -25)"/>
+      <ellipse cx="25" cy="-40" rx="30" ry="24" transform="rotate(20 25 -40)"/>
+      <ellipse cx="-15" cy="25" rx="42" ry="32" transform="rotate(10 -15 25)"/>
+      <ellipse cx="40" cy="20" rx="28" ry="22"/>
+      <circle cx="-55" cy="5" r="18"/>
+      <circle cx="10" cy="-65" r="15"/>
+      <circle cx="-45" cy="-55" r="12"/>
+      <!-- Soft Crater Ray Systems -->
+      <circle cx="20" cy="65" r="8" fill="#cbd6e5" opacity="0.9"/>
+    </g>
+
+    <!-- Translucent Night Clouds Partially Obscuring the Moon -->
+    <g fill="#141a26" opacity="0.82" filter="url(#cloud-blur)">
+      <path d="M-160 40 C-100 20 -40 50 20 30 C80 15 130 35 180 50 C140 85 60 90 -20 80 C-90 90 -130 65 -160 40 Z"/>
+      <path d="M-180 -10 C-120 -30 -60 -10 0 -25 C60 -40 120 -20 170 -5 C130 15 50 10 -10 5 C-70 15 -140 0 -180 -10 Z" opacity="0.6"/>
+    </g>
+    <!-- Silver Moonlit Cloud Rim Highlights -->
+    <path d="M-140 38 C-80 18 -20 48 30 28 C90 12 140 32 170 45" fill="none" stroke="#dbe4f0" stroke-width="2.5" opacity="0.75"/>
+    <path d="M-160 -12 C-105 -32 -50 -12 10 -27 C70 -42 125 -22 155 -7" fill="none" stroke="#dbe4f0" stroke-width="1.8" opacity="0.6"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- 1. MOONLIT JAPANESE MOUNTAIN RANGES (Natural Ridges & Shadows) -->
+  <!-- ============================================================ -->
+
+  <!-- Tier 4: Distant Ethereal Alpine Peaks (y: 120 - 660) -->
+  <path d="M0 460 C120 380 220 410 340 310 C460 210 540 280 660 180 C780 80 880 190 1020 90 C1140 180 1260 140 1380 240 C1480 320 1540 290 1600 340 V720 H0 Z" fill="url(#night-mount-4)"/>
+
+  <!-- Tier 3: Mid-Distance Crags & Cascading Ridges (y: 220 - 800) -->
+  <path d="M0 560 C140 460 260 520 420 380 C520 290 620 410 760 300 C880 200 980 340 1140 240 C1260 360 1420 310 1600 420 V850 H0 Z" fill="url(#night-mount-3)"/>
+
+  <!-- Moonlit Silver Crest Edge Highlights on Distant Mountain Ridges -->
+  <g fill="none" stroke="#687c99" stroke-linecap="round" stroke-linejoin="round" opacity="0.4">
+    <path d="M660 180 C680 240 650 310 680 380" stroke-width="2"/>
+    <path d="M1020 90 C1000 170 1030 250 1010 330" stroke-width="2.5"/>
+    <path d="M760 300 C780 370 760 440 790 520" stroke-width="1.8"/>
+    <path d="M1140 240 C1160 310 1130 390 1150 470" stroke-width="2"/>
+  </g>
+
+  <!-- Tier 2: Rugged Valley Mountain Wall (y: 360 - 940) -->
+  <path d="M0 680 C180 540 320 620 480 480 C620 360 740 510 910 400 C1060 300 1200 460 1380 390 C1490 460 1550 430 1600 510 V980 H0 Z" fill="url(#night-mount-2)"/>
+
+  <!-- Tier 1: Foreground Rocky Bluffs (y: 520 - 1080) -->
+  <path d="M0 790 C160 670 300 740 460 630 C620 520 780 670 960 560 C1120 460 1280 620 1460 540 C1540 600 1570 580 1600 630 V1100 H0 Z" fill="url(#night-mount-fore)"/>
+
+  <!-- Natural Ink Ridge Accents on Foreground Crags -->
+  <g fill="none" stroke="#0a0e14" stroke-linecap="round" stroke-linejoin="round" opacity="0.6">
+    <path d="M480 480 C490 540 470 610 500 680" stroke-width="3"/>
+    <path d="M910 400 C890 470 920 540 900 630" stroke-width="3"/>
+    <path d="M960 560 C980 630 950 710 970 800" stroke-width="2.5"/>
+    <path d="M1380 390 C1360 460 1390 530 1370 620" stroke-width="2.5"/>
+  </g>
+
+  <!-- Floating Nocturnal Kasumi Mist Layers (Soft Silver-Indigo Ribbons) -->
+  <path d="M0 520 C420 470 820 540 1240 490 C1440 470 1540 500 1600 480 V600 C1200 550 780 600 360 550 C180 530 80 560 0 540 Z" fill="url(#night-mist)"/>
+  <path d="M0 720 C460 660 920 730 1380 680 C1500 670 1560 690 1600 670 V790 C1220 740 840 790 440 750 C240 730 100 760 0 740 Z" fill="url(#night-mist)"/>
+
+  <!-- Distant Mountain Pagoda / Shrine Silhouetted in Mist (x: 1040, y: 340) -->
+  <g fill="#18202d" opacity="0.75">
+    <path d="M1030 362 L1050 354 L1070 362 Z"/>
+    <path d="M1026 374 L1050 365 L1074 374 Z"/>
+    <path d="M1022 388 L1050 377 L1078 388 Z"/>
+    <rect x="1036" y="388" width="28" height="22"/>
+    <line x1="1050" y1="344" x2="1050" y2="354" stroke="#18202d" stroke-width="2"/>
+    <!-- Subtle Moonlit Roof Edge Glow -->
+    <path d="M1030 362 L1050 354 L1070 362" stroke="#4a5d78" stroke-width="1" fill="none"/>
+    <path d="M1026 374 L1050 365 L1074 374" stroke="#4a5d78" stroke-width="1" fill="none"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- 2. NOCTURNAL CHERRY BLOSSOM BRANCH (Silver Petals in Moonlight) -->
+  <!-- ============================================================ -->
+  <g>
+    <!-- Branch Silhouette -->
+    <path d="M-30 80 C80 110 150 85 240 145 C320 200 380 170 480 220 C540 250 620 225 710 270" fill="none" stroke="url(#night-bark)" stroke-width="13" stroke-linecap="round"/>
+    <path d="M-30 80 C80 110 150 85 240 145 C320 200 380 170 480 220 C540 250 620 225 710 270" fill="none" stroke="#0a0e14" stroke-width="6" stroke-linecap="round" opacity="0.8"/>
+
+    <!-- Structural Twigs -->
+    <g fill="none" stroke="url(#night-bark)" stroke-linecap="round">
+      <path d="M165 105 C210 65 265 55 330 75" stroke-width="6"/>
+      <path d="M265 155 C305 115 365 115 415 88" stroke-width="5"/>
+      <path d="M395 175 C440 140 495 130 560 150" stroke-width="4.5"/>
+      <path d="M500 225 C545 185 590 195 645 170" stroke-width="4"/>
+      <path d="M335 195 C355 250 400 285 435 330" stroke-width="4"/>
+    </g>
+
+    <!-- Moonlit Cherry Blossom Clusters (Pale Silvery-Pink Nocturnal Petals) -->
+    <g transform="translate(300, 70)">
+      <circle cx="-10" cy="-6" r="9.5" fill="#5a687d" opacity="0.9"/>
+      <circle cx="10" cy="-7" r="9" fill="#75859e" opacity="0.9"/>
+      <circle cx="-8" cy="10" r="9" fill="#505e73" opacity="0.9"/>
+      <circle cx="9" cy="9" r="9.5" fill="#6d7d96" opacity="0.9"/>
+      <circle cx="0" cy="0" r="10" fill="#a4b4cc"/>
+      <circle cx="0" cy="0" r="3.5" fill="#2d3847"/>
+    </g>
+
+    <g transform="translate(405, 90)">
+      <circle cx="-11" cy="-7" r="10.5" fill="#566479" opacity="0.9"/>
+      <circle cx="11" cy="-8" r="10" fill="#71819a" opacity="0.9"/>
+      <circle cx="-9" cy="11" r="10" fill="#4d5a6e" opacity="0.9"/>
+      <circle cx="10" cy="10" r="10" fill="#687890" opacity="0.9"/>
+      <circle cx="0" cy="0" r="11" fill="#a0b0c7"/>
+      <circle cx="0" cy="0" r="4" fill="#293442"/>
+    </g>
+
+    <g transform="translate(545, 145)">
+      <circle cx="-10" cy="-6" r="9.5" fill="#505e72" opacity="0.9"/>
+      <circle cx="10" cy="-7" r="9" fill="#697992" opacity="0.9"/>
+      <circle cx="-8" cy="10" r="9" fill="#495568" opacity="0.9"/>
+      <circle cx="9" cy="9" r="9.5" fill="#627189" opacity="0.9"/>
+      <circle cx="0" cy="0" r="10" fill="#95a5bd"/>
+      <circle cx="0" cy="0" r="3.5" fill="#26303d"/>
+    </g>
+
+    <!-- Drifting Petals in Moonlit Night Breeze -->
+    <g fill="#7e90aa" opacity="0.75">
+      <path d="M250 200 C258 190 270 195 268 208 C262 215 248 212 250 200 Z"/>
+      <path d="M360 280 C368 270 380 275 378 288 C372 295 358 292 360 280 Z" transform="rotate(35 360 280)"/>
+      <path d="M510 330 C518 320 530 325 528 338 C522 345 508 342 510 330 Z" transform="rotate(-20 510 330)"/>
+      <path d="M640 400 C648 390 660 395 658 408 C652 415 638 412 640 400 Z" transform="rotate(45 640 400)"/>
+      <path d="M780 490 C788 480 800 485 798 498 C792 505 778 502 780 490 Z" transform="rotate(-30 780 490)"/>
+      <path d="M920 570 C928 560 940 565 938 578 C932 585 918 582 920 570 Z" transform="rotate(15 920 570)"/>
+    </g>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- 3. REALISTIC MOONLIT BONSAI PINE (Matsu with Silver Highlights) -->
+  <!-- ============================================================ -->
+  <!-- Mountain Crag Perch (x: 1080 - 1600, y: 680 - 920) -->
+  <g>
+    <path d="M1080 770 C1160 700 1260 670 1370 690 C1470 710 1530 670 1600 700 V920 H1020 Z" fill="#131924" opacity="0.9"/>
+    <path d="M1120 760 C1220 720 1340 730 1450 710 C1520 700 1570 720 1600 730" fill="none" stroke="#090d14" stroke-width="4.5"/>
+    <!-- Moonlit Ridge Highlighting on Rock Rim -->
+    <path d="M1120 758 C1220 718 1340 728 1450 708 C1520 698 1570 718 1600 728" fill="none" stroke="#485c7a" stroke-width="1.8" opacity="0.6"/>
+  </g>
+
+  <!-- Gnarled Bonsai Trunk & Weathered Jin Deadwood -->
+  <g>
+    <!-- Bleached Jin Spire Catching Direct Silver Moonlight -->
+    <path d="M1170 270 C1140 220 1180 165 1240 145 C1250 140 1220 170 1200 220 C1185 250 1175 265 1170 270 Z" fill="#9db0c9" stroke="#4a5a73" stroke-width="1.5" opacity="0.85"/>
+
+    <!-- Main Twisting Trunk with Old-Growth Form -->
+    <path d="M1380 740 C1350 645 1400 580 1355 505 C1310 430 1335 365 1270 305 C1225 265 1170 275 1120 255" fill="none" stroke="url(#night-bark)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Deep Core Shadow -->
+    <path d="M1385 735 C1356 645 1402 580 1359 507 C1315 432 1337 365 1274 307" fill="none" stroke="#070a0e" stroke-width="14" stroke-linecap="round"/>
+    <!-- Moonlit Edge Rim Lighting on Bark -->
+    <path d="M1375 745 C1344 645 1398 580 1351 503 C1305 428 1333 365 1266 303" fill="none" stroke="#5a6f8c" stroke-width="3.5" stroke-linecap="round" opacity="0.55"/>
+
+    <!-- Lateral Boughs -->
+    <g fill="none" stroke="url(#night-bark)" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M1355 515 C1245 495 1160 475 1070 465" stroke-width="17"/>
+      <path d="M1365 450 C1435 415 1510 430 1575 405" stroke-width="15"/>
+      <path d="M1300 345 C1210 325 1135 360 1045 350" stroke-width="14"/>
+      <path d="M1270 305 C1305 250 1380 240 1445 220" stroke-width="12"/>
+      <path d="M1165 265 C1140 210 1190 170 1245 150" stroke-width="10"/>
+    </g>
+  </g>
+
+  <!-- Multi-Tiered Foliage Clouds (Needles Catching Silver Moonlight) -->
+  <g>
+    <!-- PAD 1: Lower Left Cascade Pad (y: 440 - 540) -->
+    <g>
+      <path d="M960 495 Q1020 425 1120 440 Q1190 395 1260 445 Q1305 490 1250 520 Q1140 535 1030 525 Z" fill="url(#night-pine-pad)"/>
+      <ellipse cx="1115" cy="470" rx="95" ry="24" fill="#1b2330"/>
+      <ellipse cx="1195" cy="460" rx="70" ry="18" fill="#243042"/>
+      <!-- Moonlit Silver Needle Tops -->
+      <ellipse cx="1115" cy="462" rx="75" ry="14" fill="url(#night-pine-light)" opacity="0.85"/>
+      <ellipse cx="1200" cy="454" rx="50" ry="11" fill="url(#night-pine-light)" opacity="0.8"/>
+      <!-- Delicate Needle Highlights -->
+      <path d="M1040 480 Q1060 470 1080 480 M1130 465 Q1155 455 1180 465 M1210 455 Q1230 448 1250 455" stroke="#9bb3d4" stroke-width="1.6" fill="none" opacity="0.75"/>
+    </g>
+
+    <!-- PAD 2: Mid Left Pad (y: 330 - 425) -->
+    <g>
+      <path d="M940 375 Q1000 310 1090 325 Q1150 285 1220 330 Q1255 370 1210 400 Q1110 415 1015 405 Z" fill="url(#night-pine-pad)"/>
+      <ellipse cx="1080" cy="355" rx="88" ry="22" fill="#1b2330"/>
+      <ellipse cx="1155" cy="345" rx="65" ry="17" fill="#243042"/>
+      <ellipse cx="1080" cy="348" rx="68" ry="13" fill="url(#night-pine-light)" opacity="0.85"/>
+      <ellipse cx="1155" cy="340" rx="45" ry="10" fill="url(#night-pine-light)" opacity="0.8"/>
+      <path d="M1025 365 Q1050 355 1075 365 M1120 350 Q1145 340 1170 350" stroke="#9bb3d4" stroke-width="1.6" fill="none" opacity="0.75"/>
+    </g>
+
+    <!-- PAD 3: Mid Right Pad (y: 380 - 480) -->
+    <g>
+      <path d="M1400 440 Q1450 375 1530 385 Q1580 350 1630 395 Q1650 435 1610 460 Q1520 475 1450 465 Z" fill="url(#night-pine-pad)"/>
+      <ellipse cx="1520" cy="418" rx="80" ry="20" fill="#1b2330"/>
+      <ellipse cx="1520" cy="412" rx="62" ry="13" fill="url(#night-pine-light)" opacity="0.85"/>
+      <path d="M1470 425 Q1500 415 1530 425" stroke="#9bb3d4" stroke-width="1.6" fill="none" opacity="0.75"/>
+    </g>
+
+    <!-- PAD 4: Upper Right Pad (y: 200 - 290) -->
+    <g>
+      <path d="M1300 255 Q1350 195 1430 205 Q1480 175 1535 215 Q1555 250 1515 275 Q1430 285 1350 275 Z" fill="url(#night-pine-pad)"/>
+      <ellipse cx="1425" cy="238" rx="72" ry="18" fill="#1c2533"/>
+      <ellipse cx="1425" cy="232" rx="55" ry="11" fill="url(#night-pine-light)" opacity="0.88"/>
+      <path d="M1380 242 Q1410 234 1440 242" stroke="#9bb3d4" stroke-width="1.6" fill="none" opacity="0.75"/>
+    </g>
+
+    <!-- PAD 5: Top Crown Apex Pad (y: 130 - 225, Directly Facing Moon) -->
+    <g>
+      <path d="M1090 185 Q1140 125 1220 135 Q1270 105 1335 145 Q1360 185 1315 210 Q1225 225 1145 215 Z" fill="url(#night-pine-pad)"/>
+      <ellipse cx="1225" cy="168" rx="75" ry="19" fill="#202a3a"/>
+      <ellipse cx="1225" cy="162" rx="58" ry="12" fill="url(#night-pine-light)" opacity="0.92"/>
+      <ellipse cx="1225" cy="158" rx="38" ry="7" fill="#b9d0ec" opacity="0.75"/>
+      <path d="M1180 170 Q1210 160 1240 170" stroke="#b9d0ec" stroke-width="1.8" fill="none" opacity="0.8"/>
+    </g>
+  </g>
+
+  <!-- Traditional Inkan Seal Chop in Slate/Charcoal Night Tone -->
+  <g transform="translate(1480, 75)">
+    <rect width="54" height="54" rx="4" fill="#1b2330" opacity="0.9"/>
+    <rect x="3.5" y="3.5" width="47" height="47" rx="2" fill="none" stroke="#485c7a" stroke-width="1.8" opacity="0.85"/>
+    <path d="M16 14 V40 M16 27 H28 M28 14 V40 M34 14 H42 M38 14 V40 M34 26 H42 M34 40 H42" stroke="#7e94b3" stroke-width="2.3" stroke-linecap="square" fill="none" opacity="0.9"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- 4. CALM MOONLIT LAKE & SHIMMERING REFLECTION (y: 800 - 1500) -->
+  <!-- ============================================================ -->
+  <!-- Calm Lake Surface -->
+  <path d="M0 920 C360 880 780 945 1180 900 C1380 878 1500 910 1600 890 V1520 H0 Z" fill="url(#night-water)"/>
+
+  <!-- Shimmering Moonlit Reflection Path across the Water (x: 1050 - 1350) -->
+  <g opacity="0.65">
+    <ellipse cx="1200" cy="940" rx="90" ry="8" fill="#4d6280" opacity="0.5"/>
+    <ellipse cx="1200" cy="980" rx="120" ry="10" fill="#5a7194" opacity="0.55"/>
+    <ellipse cx="1200" cy="1030" rx="150" ry="12" fill="#6983aa" opacity="0.6"/>
+    <ellipse cx="1200" cy="1090" rx="180" ry="14" fill="#7896c0" opacity="0.55"/>
+    <ellipse cx="1200" cy="1160" rx="200" ry="15" fill="#6983aa" opacity="0.45"/>
+    <ellipse cx="1200" cy="1240" rx="210" ry="16" fill="#5a7194" opacity="0.35"/>
+    <ellipse cx="1200" cy="1330" rx="190" ry="15" fill="#485a75" opacity="0.25"/>
+  </g>
+
+  <!-- Kasumi Night Mist Bands floating across Water -->
+  <path d="M0 980 C440 930 900 995 1380 955 C1490 945 1550 965 1600 950 V1080 C1180 1020 780 1070 380 1030 C180 1010 80 1040 0 1020 Z" fill="url(#night-mist)"/>
+  <path d="M0 1260 C420 1210 860 1275 1340 1235 C1470 1225 1540 1245 1600 1230 V1360 C1200 1300 800 1350 400 1310 C200 1290 90 1320 0 1300 Z" fill="url(#night-mist)"/>
+
+  <!-- Moonlit Silver Water Ripples -->
+  <g fill="none" stroke="#667c9c" stroke-linecap="round" opacity="0.5">
+    <path d="M140 1060 Q280 1048 450 1060" stroke-width="1.8"/>
+    <path d="M580 1090 Q760 1076 960 1090" stroke-width="1.8"/>
+    <path d="M1080 1055 Q1240 1042 1420 1055" stroke-width="1.8" stroke="#8da5c7"/>
+    <path d="M240 1170 Q430 1156 640 1170" stroke-width="1.6"/>
+    <path d="M820 1200 Q1020 1186 1240 1200" stroke-width="1.6" stroke="#8da5c7"/>
+    <path d="M380 1350 Q580 1336 820 1350" stroke-width="1.6"/>
+    <path d="M980 1370 Q1200 1356 1460 1370" stroke-width="1.6"/>
+  </g>
+
+  <!-- Distant Cranes in Moonlit Flight (x: 380 - 550, y: 920 - 950) -->
+  <g fill="none" stroke="#222b3b" stroke-width="2" stroke-linecap="round" opacity="0.75">
+    <path d="M380 940 Q392 930 404 940 Q416 930 428 940"/>
+    <path d="M435 918 Q444 910 453 918 Q462 910 471 918"/>
+    <path d="M480 945 Q488 938 496 945 Q504 938 512 945"/>
+    <path d="M520 925 Q527 919 534 925 Q541 919 548 925"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- 5. NOCTURNAL BAMBOO & MOONLIT STEPPING STONES (y: 1500 - 2400) -->
+  <!-- ============================================================ -->
+  <!-- Rolling Low Hills Base -->
+  <path d="M0 1650 C380 1590 820 1660 1240 1620 C1440 1600 1540 1630 1600 1615 V2400 H0 Z" fill="#0d121c" opacity="0.8"/>
+  <path d="M0 1900 C450 1840 940 1910 1380 1870 C1490 1860 1550 1880 1600 1865 V2400 H0 Z" fill="#090d14" opacity="0.9"/>
+
+  <!-- Left Foreground Bamboo Culms with Silver Rim Highlights -->
+  <g stroke="#1a2333" stroke-linecap="round" fill="none" opacity="0.85">
+    <path d="M120 1480 L122 1630 M123 1640 L125 1795 M126 1805 L128 1980 M129 1990 L131 2185 M132 2195 L134 2400" stroke-width="11"/>
+    <path d="M175 1440 L177 1600 M178 1610 L180 1775 M181 1785 L183 1960 M184 1970 L186 2165 M187 2175 L189 2400" stroke-width="8.5"/>
+    <path d="M75 1520 L80 1680 M81 1690 L87 1865 M88 1875 L95 2060 M96 2070 L103 2290" stroke-width="7"/>
+
+    <!-- Bamboo Ring Nodes with Moonlit Glint -->
+    <path d="M113 1635 H132 M115 1800 H135 M118 1985 H138 M121 2190 H142" stroke="#485c7a" stroke-width="3.5"/>
+    <path d="M169 1605 H186 M172 1780 H189 M175 1965 H192 M178 2170 H195" stroke="#485c7a" stroke-width="3"/>
+  </g>
+
+  <!-- Bamboo Leaves (Deep Charcoal with Subtle Silver Highlights) -->
+  <g fill="#161e2b" opacity="0.9">
+    <path d="M125 1640 C165 1625 205 1650 240 1655 C195 1665 155 1655 125 1640 Z"/>
+    <path d="M125 1640 C155 1610 190 1615 220 1625 C185 1638 150 1632 125 1640 Z"/>
+    <path d="M125 1640 C175 1655 220 1680 260 1695 C215 1692 170 1675 125 1640 Z"/>
+
+    <path d="M180 1780 C225 1765 270 1790 310 1795 C265 1805 220 1795 180 1780 Z"/>
+    <path d="M180 1780 C215 1745 250 1750 285 1762 C250 1775 215 1770 180 1780 Z"/>
+    <path d="M180 1780 C235 1795 285 1820 330 1835 C285 1830 235 1815 180 1780 Z"/>
+
+    <path d="M128 1985 C178 1970 228 1995 270 2005 C225 2012 175 2002 128 1985 Z"/>
+    <path d="M128 1985 C170 1950 205 1958 240 1970 C205 1982 165 1978 128 1985 Z"/>
+
+    <path d="M186 2170 C235 2152 285 2180 325 2190 C280 2198 230 2188 186 2170 Z"/>
+    <path d="M186 2170 C225 2135 260 2142 295 2155 C260 2168 220 2162 186 2170 Z"/>
+  </g>
+
+  <!-- Right Side Background Bamboo Silhouette -->
+  <g stroke="#1b2536" stroke-linecap="round" fill="none" opacity="0.6">
+    <path d="M1490 1670 L1492 1845 M1493 1855 L1495 2045 M1496 2055 L1498 2260 M1499 2270 L1501 2400" stroke-width="8"/>
+    <path d="M1545 1710 L1547 1895 M1548 1905 L1550 2105 M1551 2115 L1553 2400" stroke-width="7"/>
+  </g>
+
+  <!-- Zen Garden Stepping Stones (Moonlit Silver Top Facets) -->
+  <g>
+    <!-- Raked Sand Concentric Rings in Muted Moonlit Slate -->
+    <g fill="none" stroke="#253245" stroke-width="1.6" opacity="0.6">
+      <ellipse cx="820" cy="2265" rx="160" ry="58"/>
+      <ellipse cx="820" cy="2265" rx="195" ry="72"/>
+      <ellipse cx="1030" cy="2225" rx="145" ry="52"/>
+    </g>
+
+    <!-- Stepping Stones with Moonlit Top Lighting -->
+    <!-- Stone 1 (Left) -->
+    <ellipse cx="630" cy="2210" rx="95" ry="36" fill="#0d131c"/>
+    <ellipse cx="630" cy="2204" rx="85" ry="30" fill="#1e2736"/>
+    <ellipse cx="625" cy="2198" rx="60" ry="18" fill="#36455c" opacity="0.65"/>
+
+    <!-- Stone 2 (Center Master) -->
+    <ellipse cx="820" cy="2265" rx="115" ry="42" fill="#0b1018"/>
+    <ellipse cx="820" cy="2257" rx="105" ry="35" fill="#1c2533"/>
+    <ellipse cx="815" cy="2250" rx="75" ry="22" fill="#3b4b63" opacity="0.7"/>
+
+    <!-- Stone 3 (Right Mid) -->
+    <ellipse cx="1030" cy="2225" rx="100" ry="38" fill="#0c111a"/>
+    <ellipse cx="1030" cy="2218" rx="90" ry="32" fill="#1d2635"/>
+    <ellipse cx="1025" cy="2212" rx="65" ry="20" fill="#38485e" opacity="0.68"/>
+
+    <!-- Stone 4 (Right Far) -->
+    <ellipse cx="1220" cy="2275" rx="110" ry="40" fill="#0c111a"/>
+    <ellipse cx="1220" cy="2268" rx="100" ry="33" fill="#1c2534"/>
+    <ellipse cx="1215" cy="2262" rx="70" ry="20" fill="#37475d" opacity="0.65"/>
+  </g>
+</svg>

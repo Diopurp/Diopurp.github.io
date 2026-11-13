@@ -1,6 +1,6 @@
 /**
- * Manas Hanwat — Personal Portfolio Website (V6.1)
- * Organic Interactive Particle System, Theme Persistence, Clock & Easter Egg Telemetry
+ * Manas Hanwat — Personal Portfolio Website (V6.2)
+ * Organic Interactive Particle System, Theme Persistence, Live Clock & Easter Egg Telemetry
  */
 
 (() => {
@@ -24,8 +24,8 @@
     const isDark = root.dataset.theme === 'dark';
     if (themeBtn) {
       themeBtn.textContent = isDark ? '☀' : '☾';
-      themeBtn.setAttribute('aria-label', isDark ? 'Switch to Day mode (Japanese minimalism)' : 'Switch to Night mode (Volcano & Iceberg)');
-      themeBtn.title = isDark ? 'Day mode (Japanese minimalism)' : 'Night mode (Volcano & Iceberg)';
+      themeBtn.setAttribute('aria-label', isDark ? 'Switch to Day mode (Japanese minimalism)' : 'Switch to Night mode (Moonlit Japan)');
+      themeBtn.title = isDark ? 'Day mode (Japanese minimalism)' : 'Night mode (Moonlit Japan)';
     }
   }
   updateThemeUI();
@@ -35,7 +35,7 @@
     root.dataset.theme = newTheme;
     localStorage.setItem('manas-theme', newTheme);
     updateThemeUI();
-    showToast(newTheme === 'dark' ? 'Night Mode — Volcano & Submerged Iceberg' : 'Day Mode — Japanese Minimalism');
+    showToast(newTheme === 'dark' ? 'Night Mode — Moonlit Japan' : 'Day Mode — Japanese Minimalism');
   });
 
   // -------------------------------------------------------------
@@ -101,7 +101,6 @@
   // -------------------------------------------------------------
   // 4. EASTER EGG: HIDDEN KEYBOARD SEQUENCES
   // -------------------------------------------------------------
-  // Konami Code: ↑ ↑ ↓ ↓ ← → ← → B A
   const konami = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
   let keyHistory = [];
   let typedBuffer = '';
@@ -122,7 +121,7 @@
             <p><strong>RANGE SENSING:</strong> LDS-02 2D LiDAR [STREAMING /scan]</p>
             <p><strong>LOCALIZATION:</strong> DWM3001C UWB [4 ANCHORS TRACKED] · EKF FUSION [ACTIVE]</p>
             <p><strong>NAV STACK:</strong> ROS 2 Nav2 Costmaps [SYNCHRONIZED]</p>
-            <p><strong>REPOSITORY:</strong> <a href="https://github.com/Diopurp/Columbus-Maximus" target="_blank" rel="noopener noreferrer" style="color:var(--blue);text-decoration:underline;">github.com/Diopurp/Columbus-Maximus ↗</a></p>
+            <p><strong>REPOSITORY:</strong> <a href="https://github.com/Diopurp/Columbus-Maximus" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;">github.com/Diopurp/Columbus-Maximus ↗</a></p>
             <div class="hud-quote">"Build with intent. Stay curious." — Manas Hanwat</div>
           </div>
           <div class="hud-footer">Press ESC or click close to dismiss.</div>
@@ -164,8 +163,8 @@
   });
 
   // -------------------------------------------------------------
-  // 5. ORGANIC FLUID PARTICLE SYSTEM (REFINED V6.1)
-  // Natural distribution, fluid cursor response & high Day Mode contrast
+  // 5. ORGANIC FLUID PARTICLE SYSTEM
+  // Preserving V6.1 physics & interactions, adapted to Moonlit Japan colors
   // -------------------------------------------------------------
   const canvas = document.getElementById('particles');
   if (!canvas) return;
@@ -201,7 +200,6 @@
     canvas.style.height = height + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    // Balanced particle count: 35 on mobile up to 75 on desktop for optimal clarity
     const count = Math.min(80, Math.max(34, Math.floor((width * height) / 18000)));
 
     particles = Array.from({ length: count }, (_, i) => ({
@@ -215,9 +213,6 @@
       baseRadius: 1.1 + Math.random() * 1.5,
       phase: Math.random() * Math.PI * 2,
       pulseSpeed: 0.0014 + Math.random() * 0.002,
-      // Designate roughly 1/3 for deep bioluminescent pulsing in dark waters
-      isBio: i % 3 === 0,
-      // Unique drift frequency for organic natural floating
       driftFreqX: 0.0003 + Math.random() * 0.0004,
       driftFreqY: 0.0003 + Math.random() * 0.0004
     }));
@@ -257,29 +252,16 @@
     });
   });
 
-  // Calculate ocean waterline in current viewport coordinates
-  function getWaterlineScreenY() {
-    const projectsEl = document.getElementById('projects');
-    if (projectsEl) {
-      const rect = projectsEl.getBoundingClientRect();
-      return rect.top + 20;
-    }
-    return 740 - window.scrollY;
-  }
-
   // Animation render loop
   function render(time) {
     ctx.clearRect(0, 0, width, height);
 
     const isDark = root.dataset.theme === 'dark';
-    const waterlineY = getWaterlineScreenY();
-    const scrollDepth = window.scrollY;
 
     // Decay mouse velocity
     mouse.vx *= 0.88;
     mouse.vy *= 0.88;
 
-    // Deactivate mouse influence if idle for more than 2 seconds
     if (time - mouse.lastActiveTime > 2000) {
       mouse.isActive = false;
     }
@@ -289,18 +271,16 @@
     for (let idx = 0; idx < particles.length; idx++) {
       const p = particles[idx];
 
-      // 1. ORGANIC BASE DRIFT (Harmonic multi-frequency wandering)
+      // 1. Organic Base Drift (Harmonic wandering)
       const driftX = Math.sin(time * p.driftFreqX + p.phase) * 0.022;
       const driftY = Math.cos(time * p.driftFreqY + p.phase) * 0.022;
-
-      // Soft anchor attraction to prevent clustering in corners
       const anchorPullX = (p.ox - p.x) * 0.00035;
       const anchorPullY = (p.oy - p.y) * 0.00035;
 
       p.vx += driftX + anchorPullX;
       p.vy += driftY + anchorPullY;
 
-      // 2. FLUID MOUSE & TOUCH INTERACTION
+      // 2. Fluid Mouse & Touch Interaction
       if (mouse.isActive) {
         const dx = mouse.x - p.x;
         const dy = mouse.y - p.y;
@@ -311,94 +291,62 @@
           const force = (1 - normDist);
 
           if (mouse.isDown) {
-            // DRAG / CLICK INTERACTION:
-            // Particles are smoothly drawn into a graceful swirling vortex around pointer
+            // Drag / Click: gentle swirling vortex gathering
             const angle = Math.atan2(dy, dx);
             const tangentX = -Math.sin(angle);
             const tangentY = Math.cos(angle);
-
-            // Inward spring attraction + gentle swirling vortex
             p.vx += (dx * 0.045 + tangentX * 1.8) * force;
             p.vy += (dy * 0.045 + tangentY * 1.8) * force;
           } else {
-            // HOVER / MOVE INTERACTION:
-            // Fluid displacement: cursor pushes gently through particles like water/smoke
+            // Hover: soft fluid displacement & aerodynamic wake
             const repelStrength = 0.85 * force;
             p.vx -= (dx / dist) * repelStrength;
             p.vy -= (dy / dist) * repelStrength;
-
-            // Carry particles slightly along cursor velocity vector (fluid wake)
             p.vx += mouse.vx * 0.04 * force;
             p.vy += mouse.vy * 0.04 * force;
           }
         }
       }
 
-      // Physics damping & position integration
+      // Physics damping & integration
       p.vx *= 0.93;
       p.vy *= 0.93;
       p.x += p.vx;
       p.y += p.vy;
 
-      // Smooth wrap-around screen boundaries
+      // Wrap-around screen bounds
       if (p.x < -30) p.x = width + 30;
       if (p.x > width + 30) p.x = -30;
       if (p.y < -30) p.y = height + 30;
       if (p.y > height + 30) p.y = -30;
 
-      // 3. THEME-DEPENDENT COLORS & HIGH CONTRAST IN DAY MODE
+      // 3. Theme Colors: High-contrast amber for Day, Moonlit silver-slate for Night
       let colorRGB;
       let alpha;
       let blurRadius = mouse.isDown ? 12 : 7;
       let particleRadius = p.baseRadius;
 
       if (!isDark) {
-        // DAY MODE:
-        // High visibility against the warm ivory Japanese landscape!
-        // Warm sunlit amber / golden bronze / rich autumn embers
+        // DAY MODE: Sunlit warm amber & golden bronze
         colorRGB = p.i % 2 === 0 ? '168, 114, 38' : '142, 96, 32';
-
-        // Organic periodic glowing pulsation
         const pulse = 0.5 + 0.45 * Math.sin(time * p.pulseSpeed + p.phase);
-        alpha = 0.45 + 0.45 * pulse; // Stays clearly visible at all times!
-
+        alpha = 0.45 + 0.45 * pulse;
         if (mouse.isDown) {
           particleRadius *= 1.35;
           blurRadius = 14;
         }
       } else {
-        // NIGHT MODE:
-        // Above waterline: warm volcanic fire embers
-        // Below waterline: glacial cyan / electric blue
-        // Deep water: periodically flaring bioluminescent deep-sea organisms
-        const isAboveWater = p.y < waterlineY;
-
-        if (isAboveWater) {
-          colorRGB = p.i % 2 === 0 ? '255, 88, 44' : '255, 172, 54';
-          const flicker = 0.4 + 0.45 * (0.5 + 0.5 * Math.sin(time * (p.pulseSpeed * 1.6) + p.phase));
-          alpha = flicker;
-        } else {
-          const inDeepDarkWater = p.y > waterlineY + 200 || scrollDepth > 800;
-
-          if (p.isBio && inDeepDarkWater) {
-            // Periodic slow breathing deep-sea flare
-            const pulse = Math.pow(Math.max(0, Math.sin(time * p.pulseSpeed + p.phase)), 3.2);
-            colorRGB = '92, 238, 255'; // Vibrant bioluminescent cyan
-            alpha = 0.25 + 0.75 * pulse;
-            blurRadius = mouse.isDown ? 18 : 8 + 12 * pulse;
-          } else {
-            colorRGB = '68, 212, 248'; // Glacial cyan
-            const glow = 0.3 + 0.5 * (0.5 + 0.5 * Math.sin(time * p.pulseSpeed + p.phase));
-            alpha = glow;
-          }
-        }
-
+        // NIGHT MODE: Moonlit silver & pale slate-indigo (Moonlit Japan)
+        colorRGB = p.i % 2 === 0 ? '212, 224, 240' : '172, 190, 214';
+        const pulse = 0.45 + 0.45 * Math.sin(time * p.pulseSpeed + p.phase);
+        alpha = 0.35 + 0.45 * pulse;
         if (mouse.isDown) {
-          particleRadius *= 1.4;
+          particleRadius *= 1.35;
+          blurRadius = 14;
         }
       }
 
-      // Draw particle with luminous halo
+      // Draw particle with soft halo
       ctx.beginPath();
       ctx.fillStyle = `rgba(${colorRGB}, ${alpha})`;
       ctx.shadowColor = `rgba(${colorRGB}, ${Math.min(1, alpha + 0.25)})`;

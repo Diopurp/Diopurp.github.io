@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Manas Hanwat — Second-year BTech student at VJTI, Mumbai. Automation, Robotics, Control Systems and Embedded Hardware.">
+  <meta name="description" content="Manas Hanwat — Second-year BTech student at VJTI, Mumbai. Automation, Robotics, Control Systems, Robot Learning and Embedded Engineering.">
   <meta name="theme-color" content="#f5f2eb">
   <title>Manas Hanwat — Personal Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,7 +66,7 @@
       </div>
     </section>
 
-    <!-- Projects Section (Columbus Maximus Presentation) -->
+    <!-- Projects Section (Columbus Maximus Only) -->
     <section class="projects wrap" id="projects">
       <div class="section-head">
         <div>
@@ -76,10 +76,10 @@
         <p>A growing archive of physical hardware, autonomous machines and the engineering behind them.</p>
       </div>
 
-      <!-- Columbus Maximus Project Card with CAD Blueprint Cover -->
+      <!-- Columbus Maximus Project Card with Actual Photograph -->
       <div class="project-card">
-        <a class="schematic-cover" href="projects/columbus.html" title="View Columbus Maximus Technical Documentation">
-          <img src="assets/columbus-schematic.svg" alt="Columbus Maximus top-down kinematics and sensor architecture blueprint" loading="lazy">
+        <a class="project-photo" href="projects/columbus.html" title="View Columbus Maximus Project Documentation">
+          <img src="assets/columbus-maximus.jpeg" alt="Columbus Maximus autonomous indoor differential-drive robot prototype" loading="lazy">
         </a>
         <div class="project-copy">
           <div class="tags">
@@ -88,7 +88,7 @@
           </div>
           <h3>Columbus Maximus</h3>
           <p>
-            An autonomous indoor differential-drive mobile robot engineered to navigate GPS-denied environments. Combines 2D LiDAR SLAM, DWM3001C UWB anchor ranging, wheel odometry and Extended Kalman Filter (EKF) sensor fusion to build maps and navigate indoors.
+            An autonomous indoor differential-drive mobile robot engineered to solve GPS-denied localization. Combines 2D LiDAR SLAM, DWM3001C UWB anchor ranging, wheel odometry and Extended Kalman Filter (EKF) sensor fusion to navigate indoor environments.
           </p>
           <div class="stack-row">
             ROS 2 HUMBLE　·　RASPBERRY PI 4B　·　ESP32　·　LDS-02 LIDAR　·　NAV2
@@ -99,7 +99,7 @@
               <span>GitHub Repo ↗</span>
             </a>
             <a class="explore-link" href="projects/columbus.html">
-              Technical Documentation ↗
+              Project Documentation ↗
             </a>
           </div>
         </div>
@@ -117,30 +117,38 @@
       </div>
     </section>
 
-    <!-- About Section with Direct Contact Links -->
+    <!-- About Section with Robotics, Robot Learning & Art Appreciation -->
     <section class="about" id="about">
       <div class="wrap">
         <div class="about-card">
           <p class="eyebrow">02 / ABOUT ME</p>
           <h2>Understanding systems from <em>first principles.</em></h2>
           <div class="about-grid">
-            <p class="about-lead">
-              I like understanding systems — then making something useful, robust or beautiful out of what I learn.
-            </p>
+            <div>
+              <p class="about-lead">
+                I enjoy figuring out how machines and intelligent systems work — moving between mechanical design, electronics, software and control.
+              </p>
+            </div>
             <div class="about-body">
               <p>
-                I am a second-year BTech student in Production Engineering at Veermata Jijabai Technological Institute (VJTI), Mumbai. My core interests lie in automation, robotics, control systems, embedded electronics, and CAD design.
+                I am a second-year BTech student in Production Engineering at Veermata Jijabai Technological Institute (VJTI), Mumbai. My core technical interests center on <strong>Automation, Robotics, Control Systems and Robot Learning</strong>, alongside developing practical depth in <strong>Embedded Systems, CAD Design and Production Engineering</strong>.
               </p>
               <p>
-                I enjoy moving fluidly between theory and physical reality: writing low-level C++ drivers on microcontrollers, analyzing kinematics and state estimation covariance, wiring hardware circuits, and tuning high-level ROS 2 navigation stacks.
+                I find satisfaction in navigating the full vertical stack of a physical machine: from machining chassis parts and writing bare-metal timer interrupts on microcontrollers to formulating state estimation filters and tuning high-level ROS 2 navigation stacks.
               </p>
+
+              <!-- Personal Dimension: Appreciation for Art -->
+              <p class="art-passage">
+                "Beyond engineering, I have a deep appreciation for art in all its forms. I find myself looking for it almost everywhere I go — in architecture, natural landscapes, everyday objects, and the quiet details people often pass by without noticing. Perhaps that's why I consider myself an observer as much as a builder."
+              </p>
+
               <p>
-                This website is built as an evolving engineering notebook rather than a finished résumé. It documents works-in-progress, real test logs, and honest accounts of technical hurdles.
+                This website is a living notebook rather than a finished résumé. It documents real builds, real troubleshooting, and the quiet lessons learned when hardware meets reality.
               </p>
 
               <!-- Clickable Contact Information -->
               <div class="contact-block">
-                <div class="contact-label">CONTACT &amp; CHANNELS</div>
+                <div class="contact-label">GET IN TOUCH &amp; CONNECT</div>
                 <div class="contact-links">
                   <a class="contact-card" href="mailto:manashanwat@gmail.com" title="Send email to Manas Hanwat">
                     <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>

@@ -1,11 +1,12 @@
-# Manas Hanwat — Personal Portfolio Website (V6.1)
-### Automation, Robotics, Control Systems & Engineering Archive
+# Manas Hanwat — Personal Portfolio Website (V6.2)
+### Automation, Robotics, Control Systems, Robot Learning & Engineering Archive
 
-A minimalist, high-craft personal archive featuring dual realistic full-page aesthetic environments:
-- **Day Mode**: Traditional Japanese Sumi-e landscape with realistic atmospheric mountain ridgelines, morning sun corona, gnarled Bonsai pine (*Matsu*) with *Jin* deadwood and layered needle clouds, delicate cherry blossom branch (*Sakura*), cascading Kasumi mist, bamboo grove, and Zen gravel stones.
-- **Night Mode**: Erupting stratovolcano with caldera magma pool, incandescent fountains, braided lava flows carving down basalt gullies, billowing ash plume with rim lighting, horizontal ocean waterline with heat-and-cold transition fog, and an enormous submerged iceberg that tapers into a slender crystalline keel in the dark abyss with glowing bioluminescent organisms.
-- **Organic Fluid Particle System**: Natural wandering drift with fluid mouse & touch interaction (subtle aerodynamic wake disturbance on hover, fluid gathering vortex on click/drag/touch). High Day Mode contrast with warm sunlit amber and golden bronze particles, volcanic embers and glacial cyan in Night Mode, and periodic deep-sea bioluminescence in the dark water.
-- **Featured Project**: Columbus Maximus — Autonomous indoor differential-drive mobile robot with vector CAD engineering schematics, full 10-point documentation, and direct GitHub repository links.
+A minimalist, high-craft personal archive featuring dual realistic full-page Japanese aesthetic environments:
+- **Day Mode**: Traditional Japanese Sumi-e landscape with atmospheric mountain ridgelines, morning sun corona, gnarled Bonsai pine (*Matsu*) with *Jin* deadwood, delicate cherry blossoms (*Sakura*), cascading Kasumi mist, bamboo grove, and Zen gravel stones.
+- **Night Mode (Moonlit Japan)**: Distant Japanese mountain ranges under a realistic, cloud-obscured moon, quiet starry sky, nocturnal Bonsai pine with silver-slate needle highlights, calm lake with shimmering moonlit reflection, nocturnal bamboo grove, and moonlit Zen stones.
+- **Organic Fluid Particle System**: Natural wandering drift with fluid mouse & touch interaction (aerodynamic wake disturbance on hover, fluid gathering vortex on click/drag/touch). High Day Mode contrast with warm sunlit amber and golden bronze particles; nocturnal moonlit silver and pale slate-indigo particles in Night Mode.
+- **Featured Project**: **Columbus Maximus** — Autonomous indoor differential-drive mobile robot documented as an authentic engineering journal, featuring the real hardware prototype photograph and direct GitHub repository links.
+- **About Me**: Integration of core interests in Automation, Robotics, Control Systems, Robot Learning, Embedded Systems, CAD Design, and Production Engineering, alongside a personal dimension reflecting an appreciation for art and observation.
 
 ---
 
@@ -59,8 +60,8 @@ git push -u origin main --tags
 1. Go to your repository on GitHub: `https://github.com/Diopurp/Diopurp.github.io`
 2. Navigate to **Settings** → **Pages** (under "Code and automation").
 3. Under **Build and deployment**:
-   - **Source**: `Deploy from a branch`
-   - **Branch**: `main` / `/ (root)`
+   * **Source**: `Deploy from a branch`
+   * **Branch**: `main` / `/ (root)`
 4. Click **Save**.
 5. Within 1–2 minutes, your website will be live at:
    👉 **`https://diopurp.github.io`**
@@ -70,16 +71,16 @@ git push -u origin main --tags
 ## 3. Directory Structure
 
 ```text
-├── index.html                   # Homepage (Hero, Columbus Maximus CAD card, About, Footer)
-├── styles.css                   # Responsive layout, translucent glass surfaces, typography
+├── index.html                   # Homepage (Hero, Columbus Maximus card, About, Footer)
+├── styles.css                   # Responsive layout, restrained nocturnal palettes, typography
 ├── script.js                    # Fluid particle system, theme persistence, live clock, Easter egg
 ├── README.md                    # Project documentation and setup guide
 ├── assets/
 │   ├── day-landscape.svg        # Realistic Japanese sumi-e ink landscape, bonsai & sakura
-│   ├── night-volcano-iceberg.svg# Realistic erupting stratovolcano & tapering submerged glacier
-│   └── columbus-schematic.svg   # Columbus Maximus CAD blueprint and sensor topology
+│   ├── night-landscape.svg      # Realistic Moonlit Japan night landscape & moon reflections
+│   └── columbus-maximus.jpeg    # Authentic Columbus Maximus prototype hardware photograph
 └── projects/
-    └── columbus.html            # Complete 10-point technical documentation of Columbus Maximus
+    └── columbus.html            # Columbus Maximus engineering journal documentation
 ```
 
 ---
