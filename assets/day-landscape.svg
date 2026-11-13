@@ -1,265 +1,418 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 2400" width="100%" height="100%">
   <defs>
-    <linearGradient id="day-paper" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f6f3eb"/>
-      <stop offset="35%" stop-color="#f0ece0"/>
-      <stop offset="70%" stop-color="#ebe6d8"/>
-      <stop offset="100%" stop-color="#e5e0d0"/>
+    <!-- Sky & Atmospheric Depth Gradients -->
+    <linearGradient id="day-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#faf8f2"/>
+      <stop offset="25%" stop-color="#f5f1e6"/>
+      <stop offset="55%" stop-color="#eee8d8"/>
+      <stop offset="85%" stop-color="#e6dfcc"/>
+      <stop offset="100%" stop-color="#ded6c0"/>
     </linearGradient>
 
-    <linearGradient id="day-mist" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f6f3eb" stop-opacity="0.95"/>
-      <stop offset="50%" stop-color="#ebe5d6" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#f0ece0" stop-opacity="0.85"/>
+    <!-- Mountain Layers with Realistic Atmospheric Scattering -->
+    <linearGradient id="mount-dist-4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9ca196" stop-opacity="0.38"/>
+      <stop offset="60%" stop-color="#c5c9be" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f5f1e6" stop-opacity="0.05"/>
     </linearGradient>
 
-    <linearGradient id="mount-far" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#8d9286" stop-opacity="0.55"/>
-      <stop offset="60%" stop-color="#b6baa8" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#f0ece0" stop-opacity="0.05"/>
+    <linearGradient id="mount-dist-3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7a8074" stop-opacity="0.55"/>
+      <stop offset="65%" stop-color="#a8ada1" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#eee8d8" stop-opacity="0.02"/>
     </linearGradient>
 
-    <linearGradient id="mount-mid" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#5a6054" stop-opacity="0.65"/>
-      <stop offset="70%" stop-color="#8c9284" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#f0ece0" stop-opacity="0.0"/>
+    <linearGradient id="mount-dist-2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#555c4f" stop-opacity="0.7"/>
+      <stop offset="70%" stop-color="#848b7d" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#e6dfcc" stop-opacity="0.0"/>
     </linearGradient>
 
-    <linearGradient id="mount-near" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#3d4439" stop-opacity="0.75"/>
-      <stop offset="80%" stop-color="#697063" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#e5e0d0" stop-opacity="0.0"/>
+    <linearGradient id="mount-fore" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#383e33" stop-opacity="0.85"/>
+      <stop offset="75%" stop-color="#606759" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#ded6c0" stop-opacity="0.0"/>
     </linearGradient>
 
-    <linearGradient id="water-gradient" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#dfe3d8" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#d0d5c8" stop-opacity="0.6"/>
+    <!-- Realistic Water & Mist Gradients -->
+    <linearGradient id="valley-mist" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#faf8f2" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#f2ede0" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#e8e2d2" stop-opacity="0.85"/>
     </linearGradient>
 
-    <filter id="ink-blur" x="-10%" y="-10%" width="120%" height="120%">
-      <feGaussianBlur stdDeviation="3"/>
+    <linearGradient id="water-surface" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dce1d4" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#ced4c4" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#c2c9b8" stop-opacity="0.75"/>
+    </linearGradient>
+
+    <!-- Pine Foliage Gradient (Sunlit Needle Top to Shadow Underneath) -->
+    <linearGradient id="pine-pad-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7e996a"/>
+      <stop offset="40%" stop-color="#546c43"/>
+      <stop offset="100%" stop-color="#2a3821"/>
+    </linearGradient>
+
+    <linearGradient id="pine-pad-light" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9eb888"/>
+      <stop offset="100%" stop-color="#637c51"/>
+    </linearGradient>
+
+    <!-- Bark & Rock Strata Gradients -->
+    <linearGradient id="bark-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4a4237"/>
+      <stop offset="45%" stop-color="#322c24"/>
+      <stop offset="85%" stop-color="#221e18"/>
+      <stop offset="100%" stop-color="#14110e"/>
+    </linearGradient>
+
+    <linearGradient id="deadwood-jin" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#dfd9cd"/>
+      <stop offset="50%" stop-color="#b8b09f"/>
+      <stop offset="100%" stop-color="#8a8273"/>
+    </linearGradient>
+
+    <!-- Soft Diffusion Filter for Natural Ink Bleed & Light Glow -->
+    <filter id="natural-haze" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="soft-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="14"/>
     </filter>
   </defs>
 
-  <!-- Washi Paper Base -->
-  <rect width="1600" height="2400" fill="url(#day-paper)"/>
+  <!-- Base Paper Texture -->
+  <rect width="1600" height="2400" fill="url(#day-sky)"/>
 
-  <!-- Distant Sumi Sun / Moon Disc -->
-  <circle cx="1180" cy="220" r="140" fill="#dfd8cb" opacity="0.45" filter="url(#ink-blur)"/>
+  <!-- Natural Morning Sun Disc with Soft Atmospheric Corona -->
+  <circle cx="1220" cy="240" r="160" fill="#f2ede0" opacity="0.55" filter="url(#soft-glow)"/>
+  <circle cx="1220" cy="240" r="110" fill="#faf6ed" opacity="0.75"/>
 
-  <!-- REGION 1: HIGH SUMI-E MOUNTAIN PEAKS (y: 0 to 750) -->
-  <!-- Far mountain silhouette -->
-  <path d="M0 480 L180 280 L340 390 L520 180 L720 340 L930 110 L1150 310 L1340 190 L1520 330 L1600 270 V750 H0 Z" fill="url(#mount-far)"/>
+  <!-- ============================================================ -->
+  <!-- 1. HIGH SUMI-E MOUNTAIN RANGES (Natural Ridges & Atmospheric Haze) -->
+  <!-- ============================================================ -->
 
-  <!-- Mid mountain range with ink washes -->
-  <path d="M0 560 L210 390 L410 490 L630 310 L840 450 L1060 260 L1290 440 L1480 340 L1600 420 V850 H0 Z" fill="url(#mount-mid)"/>
+  <!-- Tier 4: Distant Ethereal Alpine Peaks (y: 120 - 650) -->
+  <path d="M0 460 C120 380 220 410 340 310 C460 210 540 280 660 180 C780 80 880 190 1020 90 C1140 180 1260 140 1380 240 C1480 320 1540 290 1600 340 V720 H0 Z" fill="url(#mount-dist-4)"/>
 
-  <!-- Near mountain crags -->
-  <path d="M0 680 L160 540 L380 620 L580 470 L790 590 L1020 420 L1210 560 L1440 460 L1600 580 V950 H0 Z" fill="url(#mount-near)"/>
+  <!-- Tier 3: Mid-Distance Crags & Cascading Ridges (y: 220 - 780) -->
+  <path d="M0 560 C140 460 260 520 420 380 C520 290 620 410 760 300 C880 200 980 340 1140 240 C1260 360 1420 310 1600 420 V850 H0 Z" fill="url(#mount-dist-3)"/>
 
-  <!-- Ink stroke ridges on mountains -->
-  <g fill="none" stroke="#464d42" stroke-linecap="round" stroke-linejoin="round" opacity="0.35">
-    <path d="M520 180 L500 260 L540 330 L520 410" stroke-width="2"/>
-    <path d="M930 110 L910 210 L950 310 L920 430" stroke-width="2.5"/>
-    <path d="M1060 260 L1040 340 L1080 420" stroke-width="2"/>
-    <path d="M630 310 L610 390 L650 480" stroke-width="2"/>
+  <!-- Mountain Shading & Ridges (Natural Ink Strokes & Ravines) -->
+  <g fill="none" stroke="#686e62" stroke-linecap="round" stroke-linejoin="round" opacity="0.32">
+    <path d="M660 180 C680 240 650 310 680 380 C700 440 670 510 690 580" stroke-width="2.5"/>
+    <path d="M1020 90 C1000 170 1030 250 1010 330 C990 410 1020 490 1000 560" stroke-width="3"/>
+    <path d="M760 300 C780 370 760 440 790 520" stroke-width="2"/>
+    <path d="M1140 240 C1160 310 1130 390 1150 470" stroke-width="2.5"/>
   </g>
 
-  <!-- Kasumi / Floating Mist Layers in upper valley -->
-  <path d="M0 510 Q400 460 800 520 T1600 490 V590 Q1200 540 800 580 T0 560 Z" fill="url(#day-mist)"/>
-  <path d="M0 690 Q450 630 900 700 T1600 660 V760 Q1150 710 700 750 T0 730 Z" fill="url(#day-mist)"/>
+  <!-- Tier 2: Rugged Valley Mountain Wall (y: 360 - 920) -->
+  <path d="M0 680 C180 540 320 620 480 480 C620 360 740 510 910 400 C1060 300 1200 460 1380 390 C1490 460 1550 430 1600 510 V980 H0 Z" fill="url(#mount-dist-2)"/>
 
-  <!-- DELICATE CHERRY BLOSSOM BRANCH (Top Left, y: 40 to 320) -->
-  <g fill="none" stroke="#4a423a" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Main gnarly branch -->
-    <path d="M-20 60 C80 90 140 70 230 130 C300 175 360 150 460 200 C520 230 580 210 660 250" stroke-width="9"/>
-    <!-- Secondary twigs -->
-    <path d="M160 95 C200 60 250 50 310 70" stroke-width="5"/>
-    <path d="M260 145 C290 110 350 110 390 85" stroke-width="4"/>
-    <path d="M380 160 C420 130 470 120 530 140" stroke-width="4"/>
-    <path d="M480 205 C520 170 560 180 610 160" stroke-width="3"/>
-    <path d="M320 180 C340 230 380 260 410 300" stroke-width="3.5"/>
+  <!-- Tier 1: Foreground Rocky Bluffs & Forest Ridges (y: 520 - 1050) -->
+  <path d="M0 790 C160 670 300 740 460 630 C620 520 780 670 960 560 C1120 460 1280 620 1460 540 C1540 600 1570 580 1600 630 V1100 H0 Z" fill="url(#mount-fore)"/>
+
+  <!-- Organic Mountain Ridge Textures -->
+  <g fill="none" stroke="#2e342a" stroke-linecap="round" stroke-linejoin="round" opacity="0.45">
+    <path d="M480 480 C490 540 470 610 500 680" stroke-width="3"/>
+    <path d="M910 400 C890 470 920 540 900 630" stroke-width="3"/>
+    <path d="M960 560 C980 630 950 710 970 800" stroke-width="2.5"/>
+    <path d="M1380 390 C1360 460 1390 530 1370 620" stroke-width="2.5"/>
   </g>
 
-  <!-- Cherry Blossoms & Floating Petals -->
-  <g fill="#d89e98" opacity="0.88">
-    <!-- Cluster 1 -->
-    <circle cx="280" cy="65" r="9"/><circle cx="268" cy="55" r="8"/><circle cx="295" cy="55" r="8"/><circle cx="292" cy="78" r="8"/><circle cx="270" cy="76" r="7.5"/>
-    <circle cx="281" cy="66" r="3.5" fill="#f4dbd8"/>
-    <!-- Cluster 2 -->
-    <circle cx="370" cy="85" r="10"/><circle cx="355" cy="75" r="8.5"/><circle cx="385" cy="73" r="8.5"/><circle cx="385" cy="98" r="8"/><circle cx="358" cy="97" r="8"/>
-    <circle cx="371" cy="86" r="4" fill="#f4dbd8"/>
-    <!-- Cluster 3 -->
-    <circle cx="510" cy="135" r="9.5"/><circle cx="496" cy="125" r="8"/><circle cx="525" cy="123" r="8"/><circle cx="522" cy="146" r="8"/><circle cx="498" cy="145" r="7.5"/>
-    <circle cx="510" cy="135" r="3.5" fill="#f4dbd8"/>
-    <!-- Cluster 4 -->
-    <circle cx="640" cy="245" r="9"/><circle cx="626" cy="235" r="8"/><circle cx="654" cy="234" r="8"/><circle cx="651" cy="256" r="7.5"/><circle cx="628" cy="255" r="7.5"/>
-    <circle cx="640" cy="245" r="3.5" fill="#f4dbd8"/>
-    <!-- Cluster 5 -->
-    <circle cx="410" cy="295" r="8.5"/><circle cx="398" cy="286" r="7.5"/><circle cx="423" cy="285" r="7.5"/><circle cx="421" cy="305" r="7"/><circle cx="400" cy="304" r="7"/>
-    <circle cx="410" cy="295" r="3" fill="#f4dbd8"/>
-  </g>
-  <!-- Falling Petals in the breeze -->
-  <g fill="#dfa8a2" opacity="0.75">
-    <ellipse cx="230" cy="190" rx="7" ry="4" transform="rotate(25 230 190)"/>
-    <ellipse cx="340" cy="260" rx="6" ry="3.5" transform="rotate(45 340 260)"/>
-    <ellipse cx="480" cy="320" rx="7" ry="4" transform="rotate(-15 480 320)"/>
-    <ellipse cx="600" cy="380" rx="6" ry="3.5" transform="rotate(35 600 380)"/>
-    <ellipse cx="720" cy="460" rx="6.5" ry="4" transform="rotate(-30 720 460)"/>
-    <ellipse cx="850" cy="540" rx="6" ry="3.5" transform="rotate(20 850 540)"/>
+  <!-- Realistic Kasumi Floating Mist Layers (Feathered Volumetric Bands) -->
+  <path d="M0 520 C420 470 820 540 1240 490 C1440 470 1540 500 1600 480 V600 C1200 550 780 600 360 550 C180 530 80 560 0 540 Z" fill="url(#valley-mist)"/>
+  <path d="M0 720 C460 660 920 730 1380 680 C1500 670 1560 690 1600 670 V790 C1220 740 840 790 440 750 C240 730 100 760 0 740 Z" fill="url(#valley-mist)"/>
+
+  <!-- Distant Mountain Pagoda / Shrine Silhouetted in Haze (x: 1040, y: 340) -->
+  <g fill="#606658" opacity="0.45">
+    <!-- Tiered Roofs -->
+    <path d="M1030 362 L1050 354 L1070 362 Z"/>
+    <path d="M1026 374 L1050 365 L1074 374 Z"/>
+    <path d="M1022 388 L1050 377 L1078 388 Z"/>
+    <rect x="1036" y="388" width="28" height="22"/>
+    <line x1="1050" y1="344" x2="1050" y2="354" stroke="#606658" stroke-width="2"/>
   </g>
 
-  <!-- TRADITIONAL JAPANESE BONSAI PINE (Right side, y: 260 to 760) -->
-  <!-- Bonsai rocky crag / stone perch -->
-  <path d="M1120 740 C1180 680 1280 660 1370 680 C1460 700 1520 660 1600 690 V850 H1060 Z" fill="#4d5347" opacity="0.6"/>
-  <path d="M1150 730 L1260 700 L1380 720 L1490 690 L1600 730" stroke="#363b31" stroke-width="3" fill="none" opacity="0.7"/>
+  <!-- ============================================================ -->
+  <!-- 2. DELICATE CHERRY BLOSSOM BRANCH (Realistic Wood Grain & Petals) -->
+  <!-- ============================================================ -->
+  <g>
+    <!-- Main Sweeping Branch with Tapered Curves -->
+    <path d="M-30 80 C80 110 150 85 240 145 C320 200 380 170 480 220 C540 250 620 225 710 270" fill="none" stroke="url(#bark-grad)" stroke-width="13" stroke-linecap="round"/>
+    <path d="M-30 80 C80 110 150 85 240 145 C320 200 380 170 480 220 C540 250 620 225 710 270" fill="none" stroke="#221e18" stroke-width="6" stroke-linecap="round" opacity="0.8"/>
 
-  <!-- Bonsai Weathered Trunk (Matsu - Japanese Pine) -->
-  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Main twisting trunk with Jin / weathered character -->
-    <path d="M1360 720 C1340 640 1380 580 1340 510 C1300 440 1320 380 1260 320 C1220 280 1170 290 1120 270" stroke="#37342b" stroke-width="26"/>
-    <!-- Trunk inner shadow / wood grain -->
-    <path d="M1365 715 C1346 640 1382 580 1344 512 C1305 442 1322 380 1264 322" stroke="#25231c" stroke-width="12"/>
-    <!-- Major lateral boughs -->
-    <path d="M1340 520 C1240 500 1160 480 1080 470" stroke="#37342b" stroke-width="14"/>
-    <path d="M1350 460 C1410 430 1480 440 1540 420" stroke="#37342b" stroke-width="12"/>
-    <path d="M1290 360 C1210 340 1140 370 1060 360" stroke-width="12" stroke="#37342b"/>
-    <path d="M1260 320 C1290 270 1360 260 1420 240" stroke-width="10" stroke="#37342b"/>
-    <!-- Top crown branch -->
-    <path d="M1160 280 C1140 230 1180 190 1230 170" stroke-width="8" stroke="#37342b"/>
+    <!-- Secondary Structural Twigs -->
+    <g fill="none" stroke="url(#bark-grad)" stroke-linecap="round">
+      <path d="M165 105 C210 65 265 55 330 75" stroke-width="6"/>
+      <path d="M265 155 C305 115 365 115 415 88" stroke-width="5"/>
+      <path d="M395 175 C440 140 495 130 560 150" stroke-width="4.5"/>
+      <path d="M500 225 C545 185 590 195 645 170" stroke-width="4"/>
+      <path d="M335 195 C355 250 400 285 435 330" stroke-width="4"/>
+    </g>
+
+    <!-- Convincing Cherry Blossom Clusters (Layered Petals with Light & Shadow) -->
+    <!-- Blossom Cluster 1 (x: 300, y: 70) -->
+    <g transform="translate(300, 70)">
+      <circle cx="-10" cy="-6" r="9.5" fill="#f4d4ce" opacity="0.95"/>
+      <circle cx="10" cy="-7" r="9" fill="#f7ded8" opacity="0.95"/>
+      <circle cx="-8" cy="10" r="9" fill="#eed0ca" opacity="0.95"/>
+      <circle cx="9" cy="9" r="9.5" fill="#f5d6cf" opacity="0.95"/>
+      <circle cx="0" cy="0" r="10" fill="#fcf2ef"/>
+      <circle cx="0" cy="0" r="3.5" fill="#d97f74"/>
+      <!-- Stamen filaments -->
+      <path d="M0 0 L-4 -4 M0 0 L4 -4 M0 0 L-4 4 M0 0 L4 4" stroke="#c86458" stroke-width="1.2"/>
+    </g>
+
+    <!-- Blossom Cluster 2 (x: 405, y: 90) -->
+    <g transform="translate(405, 90)">
+      <circle cx="-11" cy="-7" r="10.5" fill="#f4d3cd" opacity="0.95"/>
+      <circle cx="11" cy="-8" r="10" fill="#f9e2dc" opacity="0.95"/>
+      <circle cx="-9" cy="11" r="10" fill="#edd0ca" opacity="0.95"/>
+      <circle cx="10" cy="10" r="10" fill="#f6d7d1" opacity="0.95"/>
+      <circle cx="0" cy="0" r="11" fill="#fdf3f0"/>
+      <circle cx="0" cy="0" r="4" fill="#d97f74"/>
+      <path d="M0 0 L-5 -4 M0 0 L5 -4 M0 0 L-5 5 M0 0 L5 5" stroke="#c86458" stroke-width="1.3"/>
+    </g>
+
+    <!-- Blossom Cluster 3 (x: 545, y: 145) -->
+    <g transform="translate(545, 145)">
+      <circle cx="-10" cy="-6" r="9.5" fill="#f3d0ca" opacity="0.95"/>
+      <circle cx="10" cy="-7" r="9" fill="#f8dfd9" opacity="0.95"/>
+      <circle cx="-8" cy="10" r="9" fill="#ecd0ca" opacity="0.95"/>
+      <circle cx="9" cy="9" r="9.5" fill="#f4d5ce" opacity="0.95"/>
+      <circle cx="0" cy="0" r="10" fill="#fcf1ee"/>
+      <circle cx="0" cy="0" r="3.5" fill="#d97f74"/>
+    </g>
+
+    <!-- Blossom Cluster 4 (x: 690, y: 265) -->
+    <g transform="translate(690, 265)">
+      <circle cx="-9" cy="-5" r="9" fill="#f3d0ca" opacity="0.95"/>
+      <circle cx="9" cy="-6" r="8.5" fill="#f8dfd9" opacity="0.95"/>
+      <circle cx="-7" cy="9" r="8.5" fill="#ecd0ca" opacity="0.95"/>
+      <circle cx="8" cy="8" r="9" fill="#f4d5ce" opacity="0.95"/>
+      <circle cx="0" cy="0" r="9.5" fill="#fcf1ee"/>
+      <circle cx="0" cy="0" r="3" fill="#d97f74"/>
+    </g>
+
+    <!-- Drifting Petals in Natural Breeze (Organic Rotations & Shadows) -->
+    <g fill="#eec8c2" opacity="0.85">
+      <path d="M250 200 C258 190 270 195 268 208 C262 215 248 212 250 200 Z"/>
+      <path d="M360 280 C368 270 380 275 378 288 C372 295 358 292 360 280 Z" transform="rotate(35 360 280)"/>
+      <path d="M510 330 C518 320 530 325 528 338 C522 345 508 342 510 330 Z" transform="rotate(-20 510 330)"/>
+      <path d="M640 400 C648 390 660 395 658 408 C652 415 638 412 640 400 Z" transform="rotate(45 640 400)"/>
+      <path d="M780 490 C788 480 800 485 798 498 C792 505 778 502 780 490 Z" transform="rotate(-30 780 490)"/>
+      <path d="M920 570 C928 560 940 565 938 578 C932 585 918 582 920 570 Z" transform="rotate(15 920 570)"/>
+    </g>
   </g>
 
-  <!-- Bonsai Foliage Clouds (Layered Pine Pads) -->
-  <g stroke="#324528" stroke-width="2" stroke-linejoin="round">
-    <!-- Pad 1: Low left -->
-    <path d="M980 480 Q1030 420 1120 435 Q1180 390 1240 440 Q1280 480 1230 505 Q1130 520 1040 510 Z" fill="#4d653c"/>
-    <ellipse cx="1110" cy="460" rx="85" ry="19" fill="#6f8c58" stroke="none" opacity="0.85"/>
-    <ellipse cx="1110" cy="455" rx="55" ry="11" fill="#95b27e" stroke="none" opacity="0.6"/>
-
-    <!-- Pad 2: Mid left -->
-    <path d="M960 370 Q1010 310 1090 325 Q1140 290 1200 330 Q1230 365 1190 390 Q1100 405 1020 395 Z" fill="#455c35"/>
-    <ellipse cx="1080" cy="350" rx="78" ry="17" fill="#688452" stroke="none" opacity="0.85"/>
-    <ellipse cx="1080" cy="346" rx="48" ry="10" fill="#8ca875" stroke="none" opacity="0.6"/>
-
-    <!-- Pad 3: Mid right -->
-    <path d="M1420 430 Q1460 370 1530 380 Q1570 350 1620 390 Q1640 425 1600 445 Q1520 460 1460 450 Z" fill="#4d653c"/>
-    <ellipse cx="1520" cy="410" rx="70" ry="16" fill="#6f8c58" stroke="none" opacity="0.85"/>
-
-    <!-- Pad 4: Upper right -->
-    <path d="M1320 250 Q1360 200 1430 210 Q1470 180 1520 220 Q1540 250 1500 270 Q1420 280 1360 270 Z" fill="#425833"/>
-    <ellipse cx="1420" cy="235" rx="65" ry="15" fill="#678351" stroke="none" opacity="0.85"/>
-
-    <!-- Pad 5: Crown -->
-    <path d="M1120 180 Q1160 130 1230 140 Q1270 110 1330 150 Q1350 185 1310 205 Q1230 215 1160 205 Z" fill="#3d512e"/>
-    <ellipse cx="1225" cy="165" rx="68" ry="16" fill="#607b4b" stroke="none" opacity="0.85"/>
-    <ellipse cx="1225" cy="160" rx="40" ry="9" fill="#829e6c" stroke="none" opacity="0.6"/>
+  <!-- ============================================================ -->
+  <!-- 3. REALISTIC JAPANESE BONSAI PINE (Matsu - Weathered Jin & Layered Pads) -->
+  <!-- ============================================================ -->
+  <!-- Rocky Mountain Crag / Stone Perch (x: 1100 - 1600, y: 680 - 900) -->
+  <g>
+    <path d="M1080 770 C1160 700 1260 670 1370 690 C1470 710 1530 670 1600 700 V920 H1020 Z" fill="#42483d" opacity="0.75"/>
+    <path d="M1120 760 C1220 720 1340 730 1450 710 C1520 700 1570 720 1600 730" fill="none" stroke="#252a21" stroke-width="4.5"/>
+    <!-- Moss / Lichen Patches on Stone -->
+    <ellipse cx="1210" cy="735" rx="55" ry="14" fill="#698255" opacity="0.6"/>
+    <ellipse cx="1390" cy="710" rx="70" ry="16" fill="#587146" opacity="0.65"/>
+    <ellipse cx="1510" cy="720" rx="45" ry="12" fill="#789262" opacity="0.55"/>
   </g>
 
-  <!-- Red Inkan / Seal Chop (Top Right: "探究" - Inquiry / Curiosity) -->
-  <g transform="translate(1470, 70)">
-    <!-- Square seal with softened sumi bleed -->
-    <rect width="52" height="52" rx="4" fill="#b9362a" opacity="0.85"/>
-    <rect x="3" y="3" width="46" height="46" rx="2" fill="none" stroke="#f4ebe7" stroke-width="1.8" opacity="0.9"/>
-    <!-- Classical seal characters -->
-    <path d="M15 13 V39 M15 26 H26 M26 13 V39 M32 13 H40 M36 13 V39 M32 25 H40 M32 39 H40" stroke="#f4ebe7" stroke-width="2.2" stroke-linecap="square" fill="none" opacity="0.92"/>
+  <!-- Bonsai Trunk & Deadwood (Jin & Shari) -->
+  <g>
+    <!-- Weathered Jin Deadwood Spire (Top bleached white branch) -->
+    <path d="M1170 270 C1140 220 1180 165 1240 145 C1250 140 1220 170 1200 220 C1185 250 1175 265 1170 270 Z" fill="url(#deadwood-jin)" stroke="#665f54" stroke-width="1.5"/>
+
+    <!-- Main Sinuous Trunk with Old-Growth Taper -->
+    <path d="M1380 740 C1350 645 1400 580 1355 505 C1310 430 1335 365 1270 305 C1225 265 1170 275 1120 255" fill="none" stroke="url(#bark-grad)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Inner Bark Shadow & Deep Striations -->
+    <path d="M1385 735 C1356 645 1402 580 1359 507 C1315 432 1337 365 1274 307" fill="none" stroke="#16130f" stroke-width="14" stroke-linecap="round"/>
+    <path d="M1375 745 C1344 645 1398 580 1351 503 C1305 428 1333 365 1266 303" fill="none" stroke="#685d4f" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+
+    <!-- Major Lateral Branches -->
+    <g fill="none" stroke="url(#bark-grad)" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M1355 515 C1245 495 1160 475 1070 465" stroke-width="17"/>
+      <path d="M1365 450 C1435 415 1510 430 1575 405" stroke-width="15"/>
+      <path d="M1300 345 C1210 325 1135 360 1045 350" stroke-width="14"/>
+      <path d="M1270 305 C1305 250 1380 240 1445 220" stroke-width="12"/>
+      <path d="M1165 265 C1140 210 1190 170 1245 150" stroke-width="10"/>
+    </g>
   </g>
 
-  <!-- REGION 2: TRANQUIL MIDDLE VALLEY & LAKE (y: 750 to 1450) -->
-  <!-- Soft sumi water wash for the middle section behind Projects -->
-  <path d="M0 920 C350 880 750 940 1150 900 C1350 880 1500 910 1600 890 V1450 H0 Z" fill="url(#water-gradient)"/>
+  <!-- Multi-Layered Bonsai Foliage Pads (Realistic Pine Needle Clusters) -->
+  <g>
+    <!-- PAD 1: Lower Left Cascade Pad (y: 440 - 540) -->
+    <g>
+      <!-- Base deep shadow -->
+      <path d="M960 495 Q1020 425 1120 440 Q1190 395 1260 445 Q1305 490 1250 520 Q1140 535 1030 525 Z" fill="url(#pine-pad-grad)"/>
+      <!-- Mid foliage layer -->
+      <ellipse cx="1115" cy="470" rx="95" ry="24" fill="#587346"/>
+      <ellipse cx="1195" cy="460" rx="70" ry="18" fill="#6a8955"/>
+      <!-- Sunlit needle top layer -->
+      <ellipse cx="1115" cy="462" rx="75" ry="14" fill="url(#pine-pad-light)" opacity="0.9"/>
+      <ellipse cx="1200" cy="454" rx="50" ry="11" fill="url(#pine-pad-light)" opacity="0.85"/>
+      <!-- Needle tuft accents -->
+      <path d="M1040 480 Q1060 470 1080 480 M1130 465 Q1155 455 1180 465 M1210 455 Q1230 448 1250 455" stroke="#a4c48c" stroke-width="1.8" fill="none" opacity="0.75"/>
+    </g>
 
-  <!-- Kasumi mist bands separating middle region -->
-  <path d="M0 980 Q450 930 900 990 T1600 960 V1060 Q1150 1010 700 1050 T0 1030 Z" fill="url(#day-mist)"/>
-  <path d="M0 1240 Q400 1190 850 1250 T1600 1220 V1310 Q1200 1260 750 1300 T0 1280 Z" fill="url(#day-mist)"/>
+    <!-- PAD 2: Mid-Level Left Pad (y: 330 - 425) -->
+    <g>
+      <path d="M940 375 Q1000 310 1090 325 Q1150 285 1220 330 Q1255 370 1210 400 Q1110 415 1015 405 Z" fill="url(#pine-pad-grad)"/>
+      <ellipse cx="1080" cy="355" rx="88" ry="22" fill="#546e42"/>
+      <ellipse cx="1155" cy="345" rx="65" ry="17" fill="#668451"/>
+      <ellipse cx="1080" cy="348" rx="68" ry="13" fill="url(#pine-pad-light)" opacity="0.9"/>
+      <ellipse cx="1155" cy="340" rx="45" ry="10" fill="url(#pine-pad-light)" opacity="0.85"/>
+      <path d="M1025 365 Q1050 355 1075 365 M1120 350 Q1145 340 1170 350" stroke="#a4c48c" stroke-width="1.8" fill="none" opacity="0.75"/>
+    </g>
 
-  <!-- Gentle water ripples in sumi ink -->
-  <g fill="none" stroke="#93998b" stroke-linecap="round" opacity="0.45">
-    <path d="M120 1060 Q260 1045 420 1060" stroke-width="1.5"/>
-    <path d="M540 1090 Q720 1075 910 1090" stroke-width="1.5"/>
-    <path d="M1050 1050 Q1200 1035 1380 1050" stroke-width="1.5"/>
-    <path d="M220 1160 Q400 1145 590 1160" stroke-width="1.5"/>
-    <path d="M780 1190 Q980 1175 1190 1190" stroke-width="1.5"/>
-    <path d="M340 1340 Q520 1325 740 1340" stroke-width="1.5"/>
-    <path d="M960 1360 Q1180 1345 1420 1360" stroke-width="1.5"/>
+    <!-- PAD 3: Mid-Level Right Pad (y: 380 - 480) -->
+    <g>
+      <path d="M1400 440 Q1450 375 1530 385 Q1580 350 1630 395 Q1650 435 1610 460 Q1520 475 1450 465 Z" fill="url(#pine-pad-grad)"/>
+      <ellipse cx="1520" cy="418" rx="80" ry="20" fill="#587346"/>
+      <ellipse cx="1520" cy="412" rx="62" ry="13" fill="url(#pine-pad-light)" opacity="0.88"/>
+      <path d="M1470 425 Q1500 415 1530 425" stroke="#a4c48c" stroke-width="1.8" fill="none" opacity="0.75"/>
+    </g>
+
+    <!-- PAD 4: Upper Right Pad (y: 200 - 290) -->
+    <g>
+      <path d="M1300 255 Q1350 195 1430 205 Q1480 175 1535 215 Q1555 250 1515 275 Q1430 285 1350 275 Z" fill="url(#pine-pad-grad)"/>
+      <ellipse cx="1425" cy="238" rx="72" ry="18" fill="#546e42"/>
+      <ellipse cx="1425" cy="232" rx="55" ry="11" fill="url(#pine-pad-light)" opacity="0.9"/>
+      <path d="M1380 242 Q1410 234 1440 242" stroke="#a4c48c" stroke-width="1.8" fill="none" opacity="0.75"/>
+    </g>
+
+    <!-- PAD 5: Top Crown Apex Pad (y: 130 - 225) -->
+    <g>
+      <path d="M1090 185 Q1140 125 1220 135 Q1270 105 1335 145 Q1360 185 1315 210 Q1225 225 1145 215 Z" fill="url(#pine-pad-grad)"/>
+      <ellipse cx="1225" cy="168" rx="75" ry="19" fill="#50693e"/>
+      <ellipse cx="1225" cy="162" rx="58" ry="12" fill="url(#pine-pad-light)" opacity="0.92"/>
+      <ellipse cx="1225" cy="158" rx="38" ry="7" fill="#b2d499" opacity="0.7"/>
+      <path d="M1180 170 Q1210 160 1240 170" stroke="#a4c48c" stroke-width="1.8" fill="none" opacity="0.75"/>
+    </g>
   </g>
 
-  <!-- Distant Cranes in Flight (Migration over the lake) -->
-  <g fill="none" stroke="#52574b" stroke-width="1.8" stroke-linecap="round" opacity="0.6">
-    <path d="M380 940 Q390 932 400 940 Q410 932 420 940"/>
-    <path d="M430 920 Q438 914 446 920 Q454 914 462 920"/>
-    <path d="M470 945 Q477 939 484 945 Q491 939 498 945"/>
-    <path d="M510 925 Q516 920 522 925 Q528 920 534 925"/>
+  <!-- Traditional Red Seal Chop (Inkan) in Top Right Corner -->
+  <g transform="translate(1480, 75)">
+    <rect width="54" height="54" rx="4" fill="#ba372b" opacity="0.88"/>
+    <rect x="3.5" y="3.5" width="47" height="47" rx="2" fill="none" stroke="#f5ede9" stroke-width="1.8" opacity="0.92"/>
+    <!-- Classical Seal Characters "探究" (Curiosity / Deep Inquiry) -->
+    <path d="M16 14 V40 M16 27 H28 M28 14 V40 M34 14 H42 M38 14 V40 M34 26 H42 M34 40 H42" stroke="#f5ede9" stroke-width="2.3" stroke-linecap="square" fill="none" opacity="0.95"/>
   </g>
 
-  <!-- REGION 3: BAMBOO GROVE & ZEN STONES (y: 1450 to 2400) -->
-  <!-- Distant hill contours behind About & Footer -->
-  <path d="M0 1620 Q380 1560 800 1620 T1600 1590 V2400 H0 Z" fill="#ded8ca" opacity="0.35"/>
-  <path d="M0 1880 Q450 1820 920 1890 T1600 1860 V2400 H0 Z" fill="#d5cfbf" opacity="0.4"/>
+  <!-- ============================================================ -->
+  <!-- 4. TRANQUIL VALLEY LAKE & RUNNING MIST (Behind Projects: y: 800 - 1500) -->
+  <!-- ============================================================ -->
+  <!-- Serene Lake Surface with Realistic Gradient -->
+  <path d="M0 920 C360 880 780 945 1180 900 C1380 878 1500 910 1600 890 V1520 H0 Z" fill="url(#water-surface)"/>
 
-  <!-- Slender Sumi-e Bamboo Stalks (Left foreground, y: 1420 to 2380) -->
-  <g stroke="#565d4f" stroke-linecap="round" fill="none" opacity="0.55">
-    <!-- Bamboo Stalk 1 -->
-    <path d="M120 1480 L122 1620 M123 1630 L125 1780 M126 1790 L128 1960 M129 1970 L131 2160 M132 2170 L134 2380" stroke-width="9"/>
-    <!-- Bamboo Stalk 2 -->
-    <path d="M170 1440 L172 1590 M173 1600 L175 1760 M176 1770 L177 1940 M178 1950 L180 2140 M181 2150 L183 2380" stroke-width="7"/>
-    <!-- Bamboo Stalk 3 (slight curve) -->
-    <path d="M80 1520 L84 1670 M85 1680 L90 1850 M91 1860 L97 2050 M98 2060 L104 2280" stroke-width="6"/>
-    <!-- Bamboo Nodes (Ring accents) -->
-    <path d="M115 1625 H130 M117 1785 H133 M120 1965 H136 M123 2165 H140" stroke="#3e4338" stroke-width="3"/>
-    <path d="M165 1595 H180 M168 1765 H183 M170 1945 H186 M173 2145 H189" stroke="#3e4338" stroke-width="2.5"/>
+  <!-- Kasumi Mist Layers across the Lake Surface -->
+  <path d="M0 980 C440 930 900 995 1380 955 C1490 945 1550 965 1600 950 V1080 C1180 1020 780 1070 380 1030 C180 1010 80 1040 0 1020 Z" fill="url(#valley-mist)"/>
+  <path d="M0 1260 C420 1210 860 1275 1340 1235 C1470 1225 1540 1245 1600 1230 V1360 C1200 1300 800 1350 400 1310 C200 1290 90 1320 0 1300 Z" fill="url(#valley-mist)"/>
+
+  <!-- Realistic Water Reflection Ripples (Perspective Depth) -->
+  <g fill="none" stroke="#878e80" stroke-linecap="round" opacity="0.5">
+    <path d="M140 1060 Q280 1048 450 1060" stroke-width="1.8"/>
+    <path d="M580 1090 Q760 1076 960 1090" stroke-width="1.8"/>
+    <path d="M1080 1055 Q1240 1042 1420 1055" stroke-width="1.8"/>
+    <path d="M240 1170 Q430 1156 640 1170" stroke-width="1.6"/>
+    <path d="M820 1200 Q1020 1186 1240 1200" stroke-width="1.6"/>
+    <path d="M380 1350 Q580 1336 820 1350" stroke-width="1.6"/>
+    <path d="M980 1370 Q1200 1356 1460 1370" stroke-width="1.6"/>
   </g>
 
-  <!-- Bamboo Leaves (Calligraphic tapered brush strokes) -->
-  <g fill="#4d5445" opacity="0.65">
-    <!-- Branch cluster 1 at y: 1620 -->
-    <path d="M125 1630 Q160 1620 195 1640 Q165 1645 125 1630 Z"/>
-    <path d="M125 1630 Q150 1605 180 1610 Q155 1625 125 1630 Z"/>
-    <path d="M125 1630 Q170 1640 210 1665 Q175 1660 125 1630 Z"/>
-
-    <!-- Branch cluster 2 at y: 1780 -->
-    <path d="M176 1770 Q215 1755 255 1775 Q220 1782 176 1770 Z"/>
-    <path d="M176 1770 Q210 1740 240 1745 Q215 1762 176 1770 Z"/>
-    <path d="M176 1770 Q225 1780 270 1805 Q230 1800 176 1770 Z"/>
-
-    <!-- Branch cluster 3 at y: 1960 -->
-    <path d="M128 1960 Q175 1945 220 1970 Q180 1975 128 1960 Z"/>
-    <path d="M128 1960 Q165 1930 200 1935 Q170 1952 128 1960 Z"/>
-    <path d="M128 1960 Q180 1970 235 2000 Q190 1992 128 1960 Z"/>
-
-    <!-- Branch cluster 4 at y: 2160 -->
-    <path d="M180 2140 Q225 2125 270 2150 Q230 2155 180 2140 Z"/>
-    <path d="M180 2140 Q215 2110 250 2115 Q220 2132 180 2140 Z"/>
+  <!-- Distant Cranes in Natural Gliding Formation (y: 920 - 960) -->
+  <g fill="none" stroke="#484d42" stroke-width="2" stroke-linecap="round" opacity="0.65">
+    <path d="M380 940 Q392 930 404 940 Q416 930 428 940"/>
+    <path d="M435 918 Q444 910 453 918 Q462 910 471 918"/>
+    <path d="M480 945 Q488 938 496 945 Q504 938 512 945"/>
+    <path d="M520 925 Q527 919 534 925 Q541 919 548 925"/>
   </g>
 
-  <!-- Right Bamboo Silhouettes (Subtle background depth, y: 1700 to 2380) -->
-  <g stroke="#7b8273" stroke-linecap="round" fill="none" opacity="0.35">
-    <path d="M1480 1680 L1482 1840 M1483 1850 L1485 2030 M1486 2040 L1488 2240 M1489 2250 L1491 2380" stroke-width="7"/>
-    <path d="M1530 1720 L1532 1890 M1533 1900 L1535 2090 M1536 2100 L1538 2380" stroke-width="6"/>
-  </g>
-  <g fill="#72796a" opacity="0.35">
-    <path d="M1483 1850 Q1440 1835 1395 1855 Q1435 1862 1483 1850 Z"/>
-    <path d="M1483 1850 Q1445 1820 1410 1825 Q1440 1842 1483 1850 Z"/>
-    <path d="M1486 2040 Q1435 2025 1385 2050 Q1430 2055 1486 2040 Z"/>
+  <!-- ============================================================ -->
+  <!-- 5. BAMBOO GROVE & ZEN STEPPING STONES (Behind About & Footer: y: 1500 - 2400) -->
+  <!-- ============================================================ -->
+  <!-- Soft Contoured Hillside Base -->
+  <path d="M0 1650 C380 1590 820 1660 1240 1620 C1440 1600 1540 1630 1600 1615 V2400 H0 Z" fill="#ded7c6" opacity="0.4"/>
+  <path d="M0 1900 C450 1840 940 1910 1380 1870 C1490 1860 1550 1880 1600 1865 V2400 H0 Z" fill="#d4cca0" opacity="0.3"/>
+
+  <!-- Left Foreground Bamboo Culms with Natural Nodes (x: 80 - 220, y: 1460 - 2400) -->
+  <g stroke="#484f42" stroke-linecap="round" fill="none" opacity="0.68">
+    <!-- Culm 1 (Subtle tapering segments) -->
+    <path d="M120 1480 L122 1630 M123 1640 L125 1795 M126 1805 L128 1980 M129 1990 L131 2185 M132 2195 L134 2400" stroke-width="11"/>
+    <!-- Culm 2 -->
+    <path d="M175 1440 L177 1600 M178 1610 L180 1775 M181 1785 L183 1960 M184 1970 L186 2165 M187 2175 L189 2400" stroke-width="8.5"/>
+    <!-- Culm 3 (Gracefully arched) -->
+    <path d="M75 1520 L80 1680 M81 1690 L87 1865 M88 1875 L95 2060 M96 2070 L103 2290" stroke-width="7"/>
+
+    <!-- Bamboo Ring Nodes with Realistic Swellings -->
+    <path d="M113 1635 H132 M115 1800 H135 M118 1985 H138 M121 2190 H142" stroke="#2c3227" stroke-width="3.5"/>
+    <path d="M169 1605 H186 M172 1780 H189 M175 1965 H192 M178 2170 H195" stroke="#2c3227" stroke-width="3"/>
   </g>
 
-  <!-- Zen Stepping Stones at the bottom (y: 2150 to 2350) -->
-  <g fill="#767c70" opacity="0.45">
-    <ellipse cx="640" cy="2220" rx="90" ry="34"/>
-    <ellipse cx="820" cy="2270" rx="110" ry="38"/>
-    <ellipse cx="1020" cy="2230" rx="95" ry="35"/>
-    <ellipse cx="1200" cy="2280" rx="105" ry="36"/>
-  </g>
-  <g fill="none" stroke="#50564a" stroke-width="2" opacity="0.5">
-    <path d="M570 2215 Q640 2200 710 2215"/>
-    <path d="M740 2265 Q820 2250 900 2265"/>
-    <path d="M950 2225 Q1020 2210 1090 2225"/>
-    <path d="M1120 2275 Q1200 2260 1280 2275"/>
+  <!-- Bamboo Leaves (Calligraphic Brush Sprays with Depth) -->
+  <g fill="#42493b" opacity="0.75">
+    <!-- Spray 1 at y: 1635 -->
+    <path d="M125 1640 C165 1625 205 1650 240 1655 C195 1665 155 1655 125 1640 Z"/>
+    <path d="M125 1640 C155 1610 190 1615 220 1625 C185 1638 150 1632 125 1640 Z"/>
+    <path d="M125 1640 C175 1655 220 1680 260 1695 C215 1692 170 1675 125 1640 Z"/>
+
+    <!-- Spray 2 at y: 1800 -->
+    <path d="M180 1780 C225 1765 270 1790 310 1795 C265 1805 220 1795 180 1780 Z"/>
+    <path d="M180 1780 C215 1745 250 1750 285 1762 C250 1775 215 1770 180 1780 Z"/>
+    <path d="M180 1780 C235 1795 285 1820 330 1835 C285 1830 235 1815 180 1780 Z"/>
+
+    <!-- Spray 3 at y: 1985 -->
+    <path d="M128 1985 C178 1970 228 1995 270 2005 C225 2012 175 2002 128 1985 Z"/>
+    <path d="M128 1985 C170 1950 205 1958 240 1970 C205 1982 165 1978 128 1985 Z"/>
+
+    <!-- Spray 4 at y: 2190 -->
+    <path d="M186 2170 C235 2152 285 2180 325 2190 C280 2198 230 2188 186 2170 Z"/>
+    <path d="M186 2170 C225 2135 260 2142 295 2155 C260 2168 220 2162 186 2170 Z"/>
   </g>
 
-  <!-- Subtle Sand / Gravel Rake Circles (Karesansui) around stones -->
-  <g fill="none" stroke="#9da295" stroke-width="1.4" opacity="0.4">
-    <ellipse cx="820" cy="2270" rx="145" ry="52"/>
-    <ellipse cx="820" cy="2270" rx="175" ry="64"/>
-    <ellipse cx="1020" cy="2230" rx="135" ry="48"/>
+  <!-- Right Side Background Bamboo Silhouette (Depth & Balance) -->
+  <g stroke="#6e7667" stroke-linecap="round" fill="none" opacity="0.4">
+    <path d="M1490 1670 L1492 1845 M1493 1855 L1495 2045 M1496 2055 L1498 2260 M1499 2270 L1501 2400" stroke-width="8"/>
+    <path d="M1545 1710 L1547 1895 M1548 1905 L1550 2105 M1551 2115 L1553 2400" stroke-width="7"/>
+  </g>
+  <g fill="#646c5e" opacity="0.4">
+    <path d="M1493 1855 C1445 1838 1395 1862 1350 1868 C1395 1876 1445 1870 1493 1855 Z"/>
+    <path d="M1496 2055 C1440 2038 1385 2065 1335 2072 C1385 2080 1440 2072 1496 2055 Z"/>
+  </g>
+
+  <!-- Realistic Zen Garden Stepping Stones (Karesansui Gravel Rake & Shaded Rocks) -->
+  <g>
+    <!-- Raked Sand Concentric Rings -->
+    <g fill="none" stroke="#9da496" stroke-width="1.6" opacity="0.48">
+      <ellipse cx="820" cy="2265" rx="160" ry="58"/>
+      <ellipse cx="820" cy="2265" rx="195" ry="72"/>
+      <ellipse cx="1030" cy="2225" rx="145" ry="52"/>
+    </g>
+
+    <!-- Natural River Stone Stepping Slabs with Shaded Top Planes -->
+    <!-- Stone 1 (Left) -->
+    <ellipse cx="630" cy="2210" rx="95" ry="36" fill="#4d5347" opacity="0.75"/>
+    <ellipse cx="630" cy="2204" rx="85" ry="30" fill="#757c6f" opacity="0.85"/>
+    <ellipse cx="625" cy="2198" rx="60" ry="18" fill="#9ba295" opacity="0.6"/>
+
+    <!-- Stone 2 (Center Master) -->
+    <ellipse cx="820" cy="2265" rx="115" ry="42" fill="#44493e" opacity="0.8"/>
+    <ellipse cx="820" cy="2257" rx="105" ry="35" fill="#6d7467" opacity="0.9"/>
+    <ellipse cx="815" cy="2250" rx="75" ry="22" fill="#939a8c" opacity="0.65"/>
+
+    <!-- Stone 3 (Right Mid) -->
+    <ellipse cx="1030" cy="2225" rx="100" ry="38" fill="#484e42" opacity="0.78"/>
+    <ellipse cx="1030" cy="2218" rx="90" ry="32" fill="#71786b" opacity="0.88"/>
+    <ellipse cx="1025" cy="2212" rx="65" ry="20" fill="#979e90" opacity="0.6"/>
+
+    <!-- Stone 4 (Right Far) -->
+    <ellipse cx="1220" cy="2275" rx="110" ry="40" fill="#464c40" opacity="0.76"/>
+    <ellipse cx="1220" cy="2268" rx="100" ry="33" fill="#6e7568" opacity="0.86"/>
+    <ellipse cx="1215" cy="2262" rx="70" ry="20" fill="#959c8e" opacity="0.6"/>
   </g>
 </svg>

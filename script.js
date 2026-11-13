@@ -1,6 +1,6 @@
 /**
- * Manas Hanwat — Personal Portfolio Website
- * Interactive Background Particles, Fibonacci Spiral, Theme Management, Easter Eggs
+ * Manas Hanwat — Personal Portfolio Website (V6.1)
+ * Organic Interactive Particle System, Theme Persistence, Clock & Easter Egg Telemetry
  */
 
 (() => {
@@ -39,7 +39,7 @@
   });
 
   // -------------------------------------------------------------
-  // 2. MOBILE NAVIGATION & TIME TICKER
+  // 2. MOBILE NAVIGATION & LIVE CLOCK
   // -------------------------------------------------------------
   const menuBtn = document.getElementById('menu');
   const nav = document.getElementById('nav');
@@ -122,6 +122,7 @@
             <p><strong>RANGE SENSING:</strong> LDS-02 2D LiDAR [STREAMING /scan]</p>
             <p><strong>LOCALIZATION:</strong> DWM3001C UWB [4 ANCHORS TRACKED] · EKF FUSION [ACTIVE]</p>
             <p><strong>NAV STACK:</strong> ROS 2 Nav2 Costmaps [SYNCHRONIZED]</p>
+            <p><strong>REPOSITORY:</strong> <a href="https://github.com/Diopurp/Columbus-Maximus" target="_blank" rel="noopener noreferrer" style="color:var(--blue);text-decoration:underline;">github.com/Diopurp/Columbus-Maximus ↗</a></p>
             <div class="hud-quote">"Build with intent. Stay curious." — Manas Hanwat</div>
           </div>
           <div class="hud-footer">Press ESC or click close to dismiss.</div>
@@ -138,12 +139,10 @@
   }
 
   window.addEventListener('keydown', (e) => {
-    // Dismiss HUD on Escape
     if (e.key === 'Escape') {
       document.getElementById('telemetry-hud')?.classList.remove('active');
     }
 
-    // Konami sequence tracking
     keyHistory.push(e.key);
     if (keyHistory.length > konami.length) {
       keyHistory.shift();
@@ -155,7 +154,6 @@
       return;
     }
 
-    // Keyword "columbus" tracking
     if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
       typedBuffer = (typedBuffer + e.key.toLowerCase()).slice(-8);
       if (typedBuffer === 'columbus') {
@@ -166,7 +164,8 @@
   });
 
   // -------------------------------------------------------------
-  // 5. INTERACTIVE PARTICLE SYSTEM & FIBONACCI SPIRAL
+  // 5. ORGANIC FLUID PARTICLE SYSTEM (REFINED V6.1)
+  // Natural distribution, fluid cursor response & high Day Mode contrast
   // -------------------------------------------------------------
   const canvas = document.getElementById('particles');
   if (!canvas) return;
@@ -179,11 +178,18 @@
   let height = 0;
   let dpr = 1;
   let particles = [];
-  let isDragging = false;
-  const mouse = { x: 0, y: 0 };
 
-  // Golden angle: 137.507764 degrees in radians
-  const GOLDEN_ANGLE = 137.507764 * (Math.PI / 180);
+  const mouse = {
+    x: -9999,
+    y: -9999,
+    prevX: -9999,
+    prevY: -9999,
+    vx: 0,
+    vy: 0,
+    isDown: false,
+    isActive: false,
+    lastActiveTime: 0
+  };
 
   function resizeCanvas() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -195,8 +201,8 @@
     canvas.style.height = height + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    // Responsive particle count (40 on small screens, up to 90 on large desktops)
-    const count = Math.min(95, Math.max(38, Math.floor((width * height) / 15000)));
+    // Balanced particle count: 35 on mobile up to 75 on desktop for optimal clarity
+    const count = Math.min(80, Math.max(34, Math.floor((width * height) / 18000)));
 
     particles = Array.from({ length: count }, (_, i) => ({
       i,
@@ -204,47 +210,59 @@
       y: Math.random() * height,
       ox: Math.random() * width,
       oy: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-      baseRadius: 0.9 + Math.random() * 1.3,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      baseRadius: 1.1 + Math.random() * 1.5,
       phase: Math.random() * Math.PI * 2,
-      pulseSpeed: 0.0012 + Math.random() * 0.0018,
-      // Designate roughly 1/3 of particles for deep bioluminescence in the abyss
-      isBio: i % 3 === 0
+      pulseSpeed: 0.0014 + Math.random() * 0.002,
+      // Designate roughly 1/3 for deep bioluminescent pulsing in dark waters
+      isBio: i % 3 === 0,
+      // Unique drift frequency for organic natural floating
+      driftFreqX: 0.0003 + Math.random() * 0.0004,
+      driftFreqY: 0.0003 + Math.random() * 0.0004
     }));
   }
 
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
 
-  // Pointer interactions on window so dragging anywhere works without blocking buttons/links
+  // Mouse & Touch Interaction Listeners
+  window.addEventListener('pointermove', (e) => {
+    if (mouse.x > -9000) {
+      mouse.vx = e.clientX - mouse.x;
+      mouse.vy = e.clientY - mouse.y;
+    }
+    mouse.prevX = mouse.x;
+    mouse.prevY = mouse.y;
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+    mouse.isActive = true;
+    mouse.lastActiveTime = performance.now();
+  });
+
   window.addEventListener('pointerdown', (e) => {
-    // Check if user clicked an interactive control
     if (e.target && e.target.closest && e.target.closest('a, button, input, textarea, select')) {
       return;
     }
-    isDragging = true;
+    mouse.isDown = true;
     mouse.x = e.clientX;
     mouse.y = e.clientY;
-  });
-
-  window.addEventListener('pointermove', (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
+    mouse.isActive = true;
+    mouse.lastActiveTime = performance.now();
   });
 
   ['pointerup', 'pointercancel', 'pointerleave'].forEach(ev => {
     window.addEventListener(ev, () => {
-      isDragging = false;
+      mouse.isDown = false;
     });
   });
 
-  // Calculate the ocean waterline in current viewport coordinates
+  // Calculate ocean waterline in current viewport coordinates
   function getWaterlineScreenY() {
     const projectsEl = document.getElementById('projects');
     if (projectsEl) {
       const rect = projectsEl.getBoundingClientRect();
-      return rect.top + 30; // Waterline sits just above the project section
+      return rect.top + 20;
     }
     return 740 - window.scrollY;
   }
@@ -257,97 +275,135 @@
     const waterlineY = getWaterlineScreenY();
     const scrollDepth = window.scrollY;
 
+    // Decay mouse velocity
+    mouse.vx *= 0.88;
+    mouse.vy *= 0.88;
+
+    // Deactivate mouse influence if idle for more than 2 seconds
+    if (time - mouse.lastActiveTime > 2000) {
+      mouse.isActive = false;
+    }
+
+    const mouseDistRadius = mouse.isDown ? 260 : 140;
+
     for (let idx = 0; idx < particles.length; idx++) {
       const p = particles[idx];
 
-      if (isDragging) {
-        // FIBONACCI GOLDEN ANGLE SPIRAL ARRANGEMENT
-        // θ = n * 137.5°
-        // Radius scales with sqrt(n) for uniform phyllotaxis density
-        const theta = p.i * GOLDEN_ANGLE + time * 0.00035;
-        const radius = 8 + Math.sqrt(p.i) * 11.5;
+      // 1. ORGANIC BASE DRIFT (Harmonic multi-frequency wandering)
+      const driftX = Math.sin(time * p.driftFreqX + p.phase) * 0.022;
+      const driftY = Math.cos(time * p.driftFreqY + p.phase) * 0.022;
 
-        const targetX = mouse.x + Math.cos(theta) * radius;
-        const targetY = mouse.y + Math.sin(theta) * radius;
+      // Soft anchor attraction to prevent clustering in corners
+      const anchorPullX = (p.ox - p.x) * 0.00035;
+      const anchorPullY = (p.oy - p.y) * 0.00035;
 
-        const dx = targetX - p.x;
-        const dy = targetY - p.y;
+      p.vx += driftX + anchorPullX;
+      p.vy += driftY + anchorPullY;
+
+      // 2. FLUID MOUSE & TOUCH INTERACTION
+      if (mouse.isActive) {
+        const dx = mouse.x - p.x;
+        const dy = mouse.y - p.y;
         const dist = Math.hypot(dx, dy);
 
-        // Spring attraction toward golden angle spiral point
-        const pull = Math.max(0.018, 1 - dist / 500);
-        p.vx += dx * (0.02 + pull * 0.035);
-        p.vy += dy * (0.02 + pull * 0.035);
-      } else {
-        // ORGANIC GENTLE DRIFT & HARMONIC OSCILLATION
-        const homeDx = p.ox - p.x;
-        const homeDy = p.oy - p.y;
+        if (dist < mouseDistRadius && dist > 1) {
+          const normDist = dist / mouseDistRadius;
+          const force = (1 - normDist);
 
-        p.vx += homeDx * 0.0005 + Math.sin(time * 0.0004 + p.phase) * 0.012;
-        p.vy += homeDy * 0.0005 + Math.cos(time * 0.0003 + p.phase) * 0.012;
+          if (mouse.isDown) {
+            // DRAG / CLICK INTERACTION:
+            // Particles are smoothly drawn into a graceful swirling vortex around pointer
+            const angle = Math.atan2(dy, dx);
+            const tangentX = -Math.sin(angle);
+            const tangentY = Math.cos(angle);
+
+            // Inward spring attraction + gentle swirling vortex
+            p.vx += (dx * 0.045 + tangentX * 1.8) * force;
+            p.vy += (dy * 0.045 + tangentY * 1.8) * force;
+          } else {
+            // HOVER / MOVE INTERACTION:
+            // Fluid displacement: cursor pushes gently through particles like water/smoke
+            const repelStrength = 0.85 * force;
+            p.vx -= (dx / dist) * repelStrength;
+            p.vy -= (dy / dist) * repelStrength;
+
+            // Carry particles slightly along cursor velocity vector (fluid wake)
+            p.vx += mouse.vx * 0.04 * force;
+            p.vy += mouse.vy * 0.04 * force;
+          }
+        }
       }
 
       // Physics damping & position integration
-      p.vx *= 0.94;
-      p.vy *= 0.94;
+      p.vx *= 0.93;
+      p.vy *= 0.93;
       p.x += p.vx;
       p.y += p.vy;
 
-      // Screen boundary wrap-around
+      // Smooth wrap-around screen boundaries
       if (p.x < -30) p.x = width + 30;
       if (p.x > width + 30) p.x = -30;
       if (p.y < -30) p.y = height + 30;
       if (p.y > height + 30) p.y = -30;
 
-      // THEME-DEPENDENT PARTICLE BEHAVIOUR & COLORS
+      // 3. THEME-DEPENDENT COLORS & HIGH CONTRAST IN DAY MODE
       let colorRGB;
       let alpha;
-      let blurRadius = isDragging ? 12 : 6;
+      let blurRadius = mouse.isDown ? 12 : 7;
+      let particleRadius = p.baseRadius;
 
       if (!isDark) {
-        // DAY MODE: Soft golden-green firefly particles
-        colorRGB = '138, 168, 98'; // Sage green / soft gold
-        // Periodic gentle glow
-        const glow = 0.25 + 0.5 * (0.5 + 0.5 * Math.sin(time * p.pulseSpeed + p.phase));
-        alpha = glow;
+        // DAY MODE:
+        // High visibility against the warm ivory Japanese landscape!
+        // Warm sunlit amber / golden bronze / rich autumn embers
+        colorRGB = p.i % 2 === 0 ? '168, 114, 38' : '142, 96, 32';
+
+        // Organic periodic glowing pulsation
+        const pulse = 0.5 + 0.45 * Math.sin(time * p.pulseSpeed + p.phase);
+        alpha = 0.45 + 0.45 * pulse; // Stays clearly visible at all times!
+
+        if (mouse.isDown) {
+          particleRadius *= 1.35;
+          blurRadius = 14;
+        }
       } else {
         // NIGHT MODE:
-        // Above ocean waterline: glowing red / orange volcanic embers
-        // Below ocean waterline: electric cyan / glacial blue
-        // In the dark water around the thinning glacier: random periodically glowing bioluminescent particles
+        // Above waterline: warm volcanic fire embers
+        // Below waterline: glacial cyan / electric blue
+        // Deep water: periodically flaring bioluminescent deep-sea organisms
         const isAboveWater = p.y < waterlineY;
 
         if (isAboveWater) {
-          // Volcanic embers
-          colorRGB = p.i % 2 === 0 ? '255, 88, 48' : '255, 172, 58';
-          const flicker = 0.35 + 0.45 * (0.5 + 0.5 * Math.sin(time * (p.pulseSpeed * 1.5) + p.phase));
+          colorRGB = p.i % 2 === 0 ? '255, 88, 44' : '255, 172, 54';
+          const flicker = 0.4 + 0.45 * (0.5 + 0.5 * Math.sin(time * (p.pulseSpeed * 1.6) + p.phase));
           alpha = flicker;
         } else {
-          // Underwater glacial / abyssal region
           const inDeepDarkWater = p.y > waterlineY + 200 || scrollDepth > 800;
 
           if (p.isBio && inDeepDarkWater) {
-            // PERIODICALLY GLOWING BIOLUMINESCENT PARTICLES IN DARK WATER
-            // Uses a steep power sine for a dramatic, slow breathing pulse
-            const pulse = Math.pow(Math.max(0, Math.sin(time * p.pulseSpeed + p.phase)), 3.5);
-            colorRGB = '95, 238, 255'; // Vibrant bioluminescent cyan
-            alpha = 0.2 + 0.8 * pulse;
-            blurRadius = isDragging ? 16 : 8 + 10 * pulse;
+            // Periodic slow breathing deep-sea flare
+            const pulse = Math.pow(Math.max(0, Math.sin(time * p.pulseSpeed + p.phase)), 3.2);
+            colorRGB = '92, 238, 255'; // Vibrant bioluminescent cyan
+            alpha = 0.25 + 0.75 * pulse;
+            blurRadius = mouse.isDown ? 18 : 8 + 12 * pulse;
           } else {
-            // Ambient glacial particles
-            colorRGB = '74, 208, 246'; // Cool glacial cyan
-            const glow = 0.25 + 0.45 * (0.5 + 0.5 * Math.sin(time * p.pulseSpeed + p.phase));
+            colorRGB = '68, 212, 248'; // Glacial cyan
+            const glow = 0.3 + 0.5 * (0.5 + 0.5 * Math.sin(time * p.pulseSpeed + p.phase));
             alpha = glow;
           }
         }
+
+        if (mouse.isDown) {
+          particleRadius *= 1.4;
+        }
       }
 
-      // Draw particle with soft halo
+      // Draw particle with luminous halo
       ctx.beginPath();
       ctx.fillStyle = `rgba(${colorRGB}, ${alpha})`;
-      ctx.shadowColor = `rgba(${colorRGB}, ${Math.min(1, alpha + 0.2)})`;
+      ctx.shadowColor = `rgba(${colorRGB}, ${Math.min(1, alpha + 0.25)})`;
       ctx.shadowBlur = blurRadius;
-      ctx.arc(p.x, p.y, p.baseRadius * (isDragging ? 1.35 : 1), 0, Math.PI * 2);
+      ctx.arc(p.x, p.y, particleRadius, 0, Math.PI * 2);
       ctx.fill();
       ctx.shadowBlur = 0;
     }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Manas Hanwat — Engineering, robotics and autonomous systems. Student at VJTI, Mumbai.">
+  <meta name="description" content="Manas Hanwat — Second-year BTech student at VJTI, Mumbai. Automation, Robotics, Control Systems and Embedded Hardware.">
   <meta name="theme-color" content="#f5f2eb">
   <title>Manas Hanwat — Personal Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
     <div class="bg-art bg-art-night"></div>
   </div>
 
-  <!-- Interactive Canvas Particle System (Golden-Angle Fibonacci Spiral & Bioluminescent Drift) -->
+  <!-- Interactive Canvas Particle System (Organic Fluid Drift & Responsive Touch/Mouse Interaction) -->
   <canvas id="particles"></canvas>
 
   <!-- Procedural Grain Texture -->
@@ -52,7 +52,9 @@
         <p class="kanji-title">探究 — CURIOSITY IN MOTION</p>
         <h1>Build with intent.<br><em>Stay curious.</em></h1>
         <p class="hero-intro">
-          I'm <strong>Manas Hanwat</strong> — a second-year BTech Production Engineering student at <strong>VJTI, Mumbai</strong>, drawn to robotics, embedded systems and engineering. This website is an evolving personal archive: a record of what I build, the engineering underneath, and the quiet joy of understanding how complex systems work.
+          I'm <strong>Manas Hanwat</strong> — a second-year BTech Production Engineering student at <strong>VJTI, Mumbai</strong>. My interests are mainly in the fields of Automation, Robotics and Control Systems, along with honing my skills in Embedded Systems, CAD Design, Production Engineering and anything that comes my way as a problem.
+          <br><br>
+          This website is a small collection of my work, experiments and interests. Hope you have a fun time exploring it!
         </p>
         <div class="hero-actions">
           <a class="button" href="#projects">Explore my work <b>↘</b></a>
@@ -64,7 +66,7 @@
       </div>
     </section>
 
-    <!-- Projects Section (Columbus Maximus Only) -->
+    <!-- Projects Section (Columbus Maximus Presentation) -->
     <section class="projects wrap" id="projects">
       <div class="section-head">
         <div>
@@ -74,17 +76,15 @@
         <p>A growing archive of physical hardware, autonomous machines and the engineering behind them.</p>
       </div>
 
-      <a class="project-card" href="projects/columbus.html">
-        <div class="project-art">
-          <div class="scan"></div>
-          <small>FIG 001 / AUTONOMOUS INDOOR ROVER</small>
-          <strong>COLUMBUS<br><i>MAXIMUS</i></strong>
-          <label>ROS 2 · SLAM · UWB · EKF</label>
-        </div>
+      <!-- Columbus Maximus Project Card with CAD Blueprint Cover -->
+      <div class="project-card">
+        <a class="schematic-cover" href="projects/columbus.html" title="View Columbus Maximus Technical Documentation">
+          <img src="assets/columbus-schematic.svg" alt="Columbus Maximus top-down kinematics and sensor architecture blueprint" loading="lazy">
+        </a>
         <div class="project-copy">
           <div class="tags">
             <span class="tag-badge">ROBOTICS</span>
-            <span class="status-badge">● IN DEVELOPMENT</span>
+            <span class="status-badge">● IN ACTIVE DEVELOPMENT</span>
           </div>
           <h3>Columbus Maximus</h3>
           <p>
@@ -93,21 +93,31 @@
           <div class="stack-row">
             ROS 2 HUMBLE　·　RASPBERRY PI 4B　·　ESP32　·　LDS-02 LIDAR　·　NAV2
           </div>
-          <b class="explore-link">Explore project documentation ↗</b>
+          <div class="project-actions">
+            <a class="github-pill" href="https://github.com/Diopurp/Columbus-Maximus" target="_blank" rel="noopener noreferrer" title="View Columbus Maximus repository on GitHub">
+              <svg class="github-icon" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span>GitHub Repo ↗</span>
+            </a>
+            <a class="explore-link" href="projects/columbus.html">
+              Technical Documentation ↗
+            </a>
+          </div>
         </div>
-      </a>
+      </div>
 
-      <div class="more-coming">
-        <b>＋</b>
-        <div>
-          <strong>More work, in time.</strong>
-          <p>This archive will expand as new technical experiments and research projects take shape. Only real builds, documented honestly.</p>
+      <!-- Personal Workbench Note (Upcoming Projects & Experiments) -->
+      <div class="projects-note">
+        <span class="note-glyph">✳</span>
+        <div class="note-copy">
+          <strong>A quick note from the workbench:</strong>
+          <p>
+            There is a lot more happening behind the scenes. Several projects, hardware experiments and ideas are currently in the works. They'll find their way here soon, so stay curious and hang around!
+          </p>
         </div>
-        <small>01 / ∞</small>
       </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section with Direct Contact Links -->
     <section class="about" id="about">
       <div class="wrap">
         <div class="about-card">
@@ -119,7 +129,7 @@
             </p>
             <div class="about-body">
               <p>
-                I am a second-year BTech student in Production Engineering at Veermata Jijabai Technological Institute (VJTI), Mumbai. My core interests lie in autonomous robotics, embedded systems, microcontrollers, control systems and physical engineering.
+                I am a second-year BTech student in Production Engineering at Veermata Jijabai Technological Institute (VJTI), Mumbai. My core interests lie in automation, robotics, control systems, embedded electronics, and CAD design.
               </p>
               <p>
                 I enjoy moving fluidly between theory and physical reality: writing low-level C++ drivers on microcontrollers, analyzing kinematics and state estimation covariance, wiring hardware circuits, and tuning high-level ROS 2 navigation stacks.
@@ -127,7 +137,21 @@
               <p>
                 This website is built as an evolving engineering notebook rather than a finished résumé. It documents works-in-progress, real test logs, and honest accounts of technical hurdles.
               </p>
-              <a class="quiet-link" href="mailto:manashanwat@gmail.com">Say hello via manashanwat@gmail.com ↗</a>
+
+              <!-- Clickable Contact Information -->
+              <div class="contact-block">
+                <div class="contact-label">CONTACT &amp; CHANNELS</div>
+                <div class="contact-links">
+                  <a class="contact-card" href="mailto:manashanwat@gmail.com" title="Send email to Manas Hanwat">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <span>manashanwat@gmail.com</span>
+                  </a>
+                  <a class="contact-card" href="https://github.com/Diopurp" target="_blank" rel="noopener noreferrer" title="View Diopurp on GitHub">
+                    <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>github.com/Diopurp ↗</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

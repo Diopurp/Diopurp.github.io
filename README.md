@@ -1,11 +1,11 @@
-# Manas Hanwat — Personal Portfolio Website
-### Engineering, Robotics & Autonomous Systems Archive
+# Manas Hanwat — Personal Portfolio Website (V6.1)
+### Automation, Robotics, Control Systems & Engineering Archive
 
-A minimalist, high-craft personal archive featuring dual full-page aesthetic environments:
-- **Day Mode**: Traditional Japanese ink-wash (sumi-e) landscape, mountain mist, cherry blossom branch, and weathered bonsai pine.
-- **Night Mode**: Erupting volcano over a colossal submerged iceberg that tapers into a slender glacial spire deep in the dark abyss, with glowing bioluminescent particles.
-- **Interactive Particle System**: Golden-angle Fibonacci spiral ($\theta = n \times 137.5^\circ$) when clicking and dragging anywhere across the screen, with theme-dependent particle physics (golden-green fireflies in Day Mode; volcanic embers above the waterline, glacial cyan below, and periodically flaring bioluminescent organisms in the deep dark water in Night Mode).
-- **Featured Project**: Comprehensive technical documentation of **Columbus Maximus** — an autonomous indoor differential-drive mobile robot (ROS 2 Humble, LDS-02 LiDAR, DWM3001C UWB, ESP32, and EKF state estimation).
+A minimalist, high-craft personal archive featuring dual realistic full-page aesthetic environments:
+- **Day Mode**: Traditional Japanese Sumi-e landscape with realistic atmospheric mountain ridgelines, morning sun corona, gnarled Bonsai pine (*Matsu*) with *Jin* deadwood and layered needle clouds, delicate cherry blossom branch (*Sakura*), cascading Kasumi mist, bamboo grove, and Zen gravel stones.
+- **Night Mode**: Erupting stratovolcano with caldera magma pool, incandescent fountains, braided lava flows carving down basalt gullies, billowing ash plume with rim lighting, horizontal ocean waterline with heat-and-cold transition fog, and an enormous submerged iceberg that tapers into a slender crystalline keel in the dark abyss with glowing bioluminescent organisms.
+- **Organic Fluid Particle System**: Natural wandering drift with fluid mouse & touch interaction (subtle aerodynamic wake disturbance on hover, fluid gathering vortex on click/drag/touch). High Day Mode contrast with warm sunlit amber and golden bronze particles, volcanic embers and glacial cyan in Night Mode, and periodic deep-sea bioluminescence in the dark water.
+- **Featured Project**: Columbus Maximus — Autonomous indoor differential-drive mobile robot with vector CAD engineering schematics, full 10-point documentation, and direct GitHub repository links.
 
 ---
 
@@ -36,7 +36,7 @@ Follow these exact steps to push this repository and publish the website:
 2. Create a **New Repository**.
 3. Name it **exactly**: `Diopurp.github.io`
 4. Set visibility to **Public**.
-5. Do **not** initialize it with a README, .gitignore, or license (the local repository already contains everything).
+5. Leave "Add a README", "Add .gitignore", and "Choose a license" **unchecked**.
 
 ### Step 2: Push Local Code to GitHub
 Run the following commands in your terminal from this folder (`/home/manas/Projects/manas-personal-site`):
@@ -45,7 +45,7 @@ Run the following commands in your terminal from this folder (`/home/manas/Proje
 # Check current git status and branch
 git status
 
-# Add the remote repository URL
+# Add the remote repository URL (if not already added)
 git remote add origin https://github.com/Diopurp/Diopurp.github.io.git
 
 # Ensure default branch is main
@@ -70,26 +70,23 @@ git push -u origin main --tags
 ## 3. Directory Structure
 
 ```text
-├── index.html                   # Homepage (Hero, Columbus Maximus card, About, Footer)
+├── index.html                   # Homepage (Hero, Columbus Maximus CAD card, About, Footer)
 ├── styles.css                   # Responsive layout, translucent glass surfaces, typography
-├── script.js                    # Particle system, Fibonacci spiral, theme persistence, Easter egg
+├── script.js                    # Fluid particle system, theme persistence, live clock, Easter egg
 ├── README.md                    # Project documentation and setup guide
 ├── assets/
-│   ├── day-landscape.svg        # Japanese sumi-e ink landscape, bonsai & cherry blossom
-│   └── night-volcano-iceberg.svg# Erupting volcano, ocean waterline, and tapering submerged glacier
+│   ├── day-landscape.svg        # Realistic Japanese sumi-e ink landscape, bonsai & sakura
+│   ├── night-volcano-iceberg.svg# Realistic erupting stratovolcano & tapering submerged glacier
+│   └── columbus-schematic.svg   # Columbus Maximus CAD blueprint and sensor topology
 └── projects/
     └── columbus.html            # Complete 10-point technical documentation of Columbus Maximus
 ```
 
 ---
 
-## 4. Features & Interactions
+## 4. Key Links & References
 
-- **Full-Page Background Artwork**: The artwork constitutes the actual full-page document background, continuing behind all content panels as you scroll down.
-- **Fibonacci Spiral Mouse Interaction**: Dragging the mouse anywhere on the screen progressively arranges the particles in a golden angle spiral ($\theta = n \times 137.5^\circ$).
-- **Theme Persistence**: Theme toggles between Day and Night mode and persists across page reloads via `localStorage`.
-- **Keyboard Easter Egg**:
-  - Enter the Konami Code: `↑ ↑ ↓ ↓ ← → ← → B A`
-  - Or type `columbus` on your keyboard.
-  - Unlocks an engineering telemetry HUD modal with live diagnostic state for Columbus Maximus.
-- **Accessibility**: Full compliance with `prefers-reduced-motion` to disable animations and particle motion when requested by the OS.
+- **Personal Website Repository**: [https://github.com/Diopurp/Diopurp.github.io](https://github.com/Diopurp/Diopurp.github.io)
+- **Columbus Maximus Project Repository**: [https://github.com/Diopurp/Columbus-Maximus](https://github.com/Diopurp/Columbus-Maximus)
+- **Direct Contact**: [manashanwat@gmail.com](mailto:manashanwat@gmail.com)
+- **GitHub Profile**: [https://github.com/Diopurp](https://github.com/Diopurp)
