@@ -29,18 +29,20 @@
       <b>M.</b>
       <span>MANAS HANWAT <i>PERSONAL ARCHIVE</i></span>
     </a>
-    <nav>
-      <a href="../index.html#projects">← All projects</a>
+    <nav id="nav">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#projects">Projects</a>
       <a href="../index.html#about">About</a>
     </nav>
     <div class="right">
       <time id="clock">--:-- IST</time>
       <button id="theme" aria-label="Toggle day and night theme">☾</button>
+      <button id="menu" aria-label="Open navigation">☰</button>
     </div>
   </header>
 
-  <main class="journal wrap">
-    <a class="back" href="../index.html#projects">← BACK TO HOMEPAGE</a>
+  <main class="journal">
+    <a class="back" href="../index.html#projects">← Back to Projects</a>
 
     <header class="journal-header">
       <p class="eyebrow">
@@ -125,54 +127,56 @@
         The robot uses a dual-tier compute topology:
       </p>
 
-      <table class="journal-table">
-        <thead>
-          <tr>
-            <th>Subsystem</th>
-            <th>Component</th>
-            <th>Role &amp; Responsibilities</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>High-Level Compute</strong></td>
-            <td>Raspberry Pi 4B (4GB)</td>
-            <td>Runs headless Ubuntu 22.04 LTS and ROS 2 Humble. Manages TF2 coordinate transforms, LiDAR data processing, SLAM Toolbox mapping, and Nav2 costmaps.</td>
-            <td><span class="status-pill status-verified">Operational</span></td>
-          </tr>
-          <tr>
-            <td><strong>Low-Level Controller</strong></td>
-            <td>ESP32 Microcontroller</td>
-            <td>Runs a dedicated 50Hz discrete PID velocity control loop. Uses hardware timer interrupts to count quadrature encoder ticks and convert <code>/cmd_vel</code> twist targets into motor PWM signals.</td>
-            <td><span class="status-pill status-verified">Operational</span></td>
-          </tr>
-          <tr>
-            <td><strong>Planar Range Sensing</strong></td>
-            <td>LDS-02 2D LiDAR</td>
-            <td>360-degree laser range finder spinning at 5.5Hz. Streams planar distance measurements up to 3.5m over serial to the Raspberry Pi for obstacle avoidance and SLAM.</td>
-            <td><span class="status-pill status-verified">Operational</span></td>
-          </tr>
-          <tr>
-            <td><strong>Absolute Localization</strong></td>
-            <td>Decawave DWM3001C UWB</td>
-            <td>Ultra-Wideband RF transceivers. One rover-mounted mobile tag measuring two-way time-of-flight (ToF) distance to 4 static anchor nodes placed at surveyed room coordinates.</td>
-            <td><span class="status-pill status-testing">In Testing</span></td>
-          </tr>
-          <tr>
-            <td><strong>Actuation &amp; Feedback</strong></td>
-            <td>DC Gearmotors + Encoders</td>
-            <td>Differential-drive layout with two driven wheels on a common axis and front/rear omni-directional caster ball bearings for balanced three-point ground contact.</td>
-            <td><span class="status-pill status-verified">Operational</span></td>
-          </tr>
-          <tr>
-            <td><strong>Power Subsystem</strong></td>
-            <td>Dual-Rail Isolated DC Regulators</td>
-            <td>Separate high-discharge battery rails with step-down buck converters, isolating motor driver inductive spikes from sensitive compute logic to prevent CPU brownouts.</td>
-            <td><span class="status-pill status-verified">Operational</span></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-container">
+        <table class="journal-table">
+          <thead>
+            <tr>
+              <th>Subsystem</th>
+              <th>Component</th>
+              <th>Role &amp; Responsibilities</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>High-Level Compute</strong></td>
+              <td>Raspberry Pi 4B (4GB)</td>
+              <td>Runs headless Ubuntu 22.04 LTS and ROS 2 Humble. Manages TF2 coordinate transforms, LiDAR data processing, SLAM Toolbox mapping, and Nav2 costmaps.</td>
+              <td><span class="status-pill status-verified">Operational</span></td>
+            </tr>
+            <tr>
+              <td><strong>Low-Level Controller</strong></td>
+              <td>ESP32 Microcontroller</td>
+              <td>Runs a dedicated 50Hz discrete PID velocity control loop. Uses hardware timer interrupts to count quadrature encoder ticks and convert <code>/cmd_vel</code> twist targets into motor PWM signals.</td>
+              <td><span class="status-pill status-verified">Operational</span></td>
+            </tr>
+            <tr>
+              <td><strong>Planar Range Sensing</strong></td>
+              <td>LDS-02 2D LiDAR</td>
+              <td>360-degree laser range finder spinning at 5.5Hz. Streams planar distance measurements up to 3.5m over serial to the Raspberry Pi for obstacle avoidance and SLAM.</td>
+              <td><span class="status-pill status-verified">Operational</span></td>
+            </tr>
+            <tr>
+              <td><strong>Absolute Localization</strong></td>
+              <td>Decawave DWM3001C UWB</td>
+              <td>Ultra-Wideband RF transceivers. One rover-mounted mobile tag measuring two-way time-of-flight (ToF) distance to 4 static anchor nodes placed at surveyed room coordinates.</td>
+              <td><span class="status-pill status-testing">In Testing</span></td>
+            </tr>
+            <tr>
+              <td><strong>Actuation &amp; Feedback</strong></td>
+              <td>DC Gearmotors + Encoders</td>
+              <td>Differential-drive layout with two driven wheels on a common axis and front/rear omni-directional caster ball bearings for balanced three-point ground contact.</td>
+              <td><span class="status-pill status-verified">Operational</span></td>
+            </tr>
+            <tr>
+              <td><strong>Power Subsystem</strong></td>
+              <td>Dual-Rail Isolated DC Regulators</td>
+              <td>Separate high-discharge battery rails with step-down buck converters, isolating motor driver inductive spikes from sensitive compute logic to prevent CPU brownouts.</td>
+              <td><span class="status-pill status-verified">Operational</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- SECTION 3: SOFTWARE ARCHITECTURE & ROS 2 -->
@@ -191,10 +195,9 @@
         </li>
         <li>
           <strong>Coordinate Frame Tree (TF2):</strong> ROS 2 requires an unambiguous geometric relationship between all sensors. The transform pipeline continuously broadcasts the spatial tree:
-          <br>
-          <code style="font: 11px var(--mono); color: var(--accent); display: block; margin: 8px 0; padding: 8px 12px; background: var(--panel); border: 1px solid var(--line);">
-            map → odom → base_footprint → base_link → laser_frame / uwb_tag
-          </code>
+          <div class="journal-code">
+            <code>map → odom → base_footprint → base_link → laser_frame / uwb_tag</code>
+          </div>
         </li>
         <li>
           <strong>Navigation Stack (Nav2):</strong> Ingests the filtered robot pose along with real-time laser scans. Nav2 builds a <strong>global costmap</strong> representing static walls and obstacle inflation buffers, and a dynamic <strong>local costmap</strong> in a rolling window around the robot to detect unforeseen obstructions.
@@ -218,9 +221,11 @@
         </li>
       </ul>
       <p>
-        The state vector tracks continuous position $(x, y)$, yaw heading $(\psi)$, and their respective linear and angular velocities:
-        $$\mathbf{x}_k = [x, y, \psi, \dot{x}, \dot{y}, \dot{\psi}]^T$$
+        The state vector tracks continuous planar position (<em>x</em>, <em>y</em>), yaw heading (<em>ψ</em>), and their respective linear and angular velocities:
       </p>
+      <div class="math-block" aria-label="x_k = [x, y, psi, x-dot, y-dot, psi-dot] transpose">
+        <span class="math-sym">x</span><sub>k</sub> = [ <em>x</em>,&nbsp; <em>y</em>,&nbsp; <em>ψ</em>,&nbsp; <em>ẋ</em>,&nbsp; <em>ẏ</em>,&nbsp; <em>ψ̇</em> ]<sup>T</sup>
+      </div>
       <p>
         <em>Current Status:</em> Wheel odometry velocity estimation and LiDAR scan pipelines are verified and operating reliably. The UWB anchor network has been validated in static bench setups; active dynamic covariance tuning under rapid robot acceleration is currently the primary focus of development.
       </p>
@@ -234,37 +239,37 @@
         Building a real physical machine always uncovers discrepancies that do not exist in theoretical papers. Here are four real challenges encountered during prototyping:
       </p>
 
-      <div style="display: grid; gap: 20px; margin-top: 24px;">
-        <div style="padding: 20px 24px; background: var(--paper); border: 1px solid var(--line); border-left: 3px solid var(--accent);">
-          <strong style="display: block; font-size: 13.5px; margin-bottom: 6px; color: var(--text);">1. Wheel Slip During In-Place Turns</strong>
-          <p style="font-size: 13.5px; line-height: 1.85; color: var(--muted); margin: 0;">
+      <div class="hurdles-grid">
+        <div class="hurdle-card">
+          <h3>1. Wheel Slip During In-Place Turns</h3>
+          <p>
             <em>The Problem:</em> Because Columbus Maximus uses a differential-drive setup with omni caster supports, commanding an aggressive zero-radius turn on smooth lab tiles caused the drive tires to momentarily lose traction. The encoders reported rotational velocity that never translated into physical movement, throwing off the robot's heading estimate by as much as 15 degrees in two seconds.
             <br>
             <em>The Fix:</em> Implemented smooth acceleration ramping in the ESP32 PID velocity controller, and adjusted the EKF angular velocity covariance matrix so the filter does not blindly trust encoder heading changes during sharp maneuvers.
           </p>
         </div>
 
-        <div style="padding: 20px 24px; background: var(--paper); border: 1px solid var(--line); border-left: 3px solid var(--accent);">
-          <strong style="display: block; font-size: 13.5px; margin-bottom: 6px; color: var(--text);">2. UWB Non-Line-of-Sight (NLOS) Multipath Reflection</strong>
-          <p style="font-size: 13.5px; line-height: 1.85; color: var(--muted); margin: 0;">
+        <div class="hurdle-card">
+          <h3>2. UWB Non-Line-of-Sight (NLOS) Multipath Reflection</h3>
+          <p>
             <em>The Problem:</em> RF signals traveling from the rover tag to static anchors occasionally reflect off metallic cabinets or pass through drywall. Because the speed of RF waves in air is constant, reflected indirect paths measure a longer time-of-flight, causing sudden artificial range spikes of 25–40 cm.
             <br>
             <em>The Fix:</em> Wrote a pre-filter node that computes the residual variance between predicted robot position and incoming anchor ranges, discarding sudden outliers (Mahalanobis distance thresholding) before passing ranges to the trilateration solver.
           </p>
         </div>
 
-        <div style="padding: 20px 24px; background: var(--paper); border: 1px solid var(--line); border-left: 3px solid var(--accent);">
-          <strong style="display: block; font-size: 13.5px; margin-bottom: 6px; color: var(--text);">3. Timestamp Synchronization Across Two Operating Systems</strong>
-          <p style="font-size: 13.5px; line-height: 1.85; color: var(--muted); margin: 0;">
+        <div class="hurdle-card">
+          <h3>3. Timestamp Synchronization Across Two Operating Systems</h3>
+          <p>
             <em>The Problem:</em> ROS 2 relies heavily on accurate header timestamps to interpolate spatial transforms. The ESP32 internal clock ticks at its own rate, while the Raspberry Pi uses system time. Millisecond drifts between the two caused <code>TF_OLD_DATA</code> warnings and stuttering costmap updates.
             <br>
             <em>The Fix:</em> Established timestamp synchronization over the serial protocol: the Raspberry Pi timestamps incoming encoder packets upon arrival, ensuring a unified temporal frame across all ROS 2 nodes.
           </p>
         </div>
 
-        <div style="padding: 20px 24px; background: var(--paper); border: 1px solid var(--line); border-left: 3px solid var(--accent);">
-          <strong style="display: block; font-size: 13.5px; margin-bottom: 6px; color: var(--text);">4. Motor Inductive Spikes &amp; Logic Brownouts</strong>
-          <p style="font-size: 13.5px; line-height: 1.85; color: var(--muted); margin: 0;">
+        <div class="hurdle-card">
+          <h3>4. Motor Inductive Spikes &amp; Logic Brownouts</h3>
+          <p>
             <em>The Problem:</em> During rapid motor direction reversals, the DC gearmotors drew peak stall currents that created back-EMF voltage drops on the common 5V power bus, causing the ESP32 to unexpectedly reset mid-run.
             <br>
             <em>The Fix:</em> Separated motor and logic power into isolated battery rails, installed flyback diodes and snubber capacitors directly across motor terminals, and added optocoupler isolation on PWM logic lines.
@@ -281,52 +286,54 @@
         To keep documentation honest, here is a transparent breakdown of what is verified versus what is actively being built:
       </p>
 
-      <table class="journal-table">
-        <thead>
-          <tr>
-            <th>Milestone / Capability</th>
-            <th>Current Reality</th>
-            <th>State</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Chassis &amp; Motor Hardware</strong></td>
-            <td>Differential-drive base, DC gearmotors, encoder wiring, and isolated battery rails assembled and verified.</td>
-            <td><span class="status-pill status-verified">Verified</span></td>
-          </tr>
-          <tr>
-            <td><strong>ESP32 Low-Level Firmware</strong></td>
-            <td>50Hz discrete PID velocity control and quadrature pulse counting operational over serial link.</td>
-            <td><span class="status-pill status-verified">Verified</span></td>
-          </tr>
-          <tr>
-            <td><strong>ROS 2 Humble Integration</strong></td>
-            <td>Workspace configured on Raspberry Pi 4B; telemetry pipeline publishes valid <code>/odom</code> and <code>/scan</code>.</td>
-            <td><span class="status-pill status-verified">Verified</span></td>
-          </tr>
-          <tr>
-            <td><strong>2D SLAM Room Mapping</strong></td>
-            <td>Occupancy grid generation verified in indoor room environments via manual teleoperation.</td>
-            <td><span class="status-pill status-verified">Verified</span></td>
-          </tr>
-          <tr>
-            <td><strong>UWB Anchor Ranging</strong></td>
-            <td>Four DWM3001C anchors operational on testbench; dynamic ranging while rover moves is under calibration.</td>
-            <td><span class="status-pill status-testing">In Testing</span></td>
-          </tr>
-          <tr>
-            <td><strong>EKF Multi-Sensor Fusion</strong></td>
-            <td>Odometry state estimation working; covariance matrix tuning for UWB range fusion is actively in progress.</td>
-            <td><span class="status-pill status-testing">In Tuning</span></td>
-          </tr>
-          <tr>
-            <td><strong>Autonomous Nav2 Waypoints</strong></td>
-            <td>Costmaps and path planners configured; full autonomous point-to-point indoor navigation is being tested.</td>
-            <td><span class="status-pill status-planned">In Development</span></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-container">
+        <table class="journal-table">
+          <thead>
+            <tr>
+              <th>Milestone / Capability</th>
+              <th>Current Reality</th>
+              <th>State</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Chassis &amp; Motor Hardware</strong></td>
+              <td>Differential-drive base, DC gearmotors, encoder wiring, and isolated battery rails assembled and verified.</td>
+              <td><span class="status-pill status-verified">Verified</span></td>
+            </tr>
+            <tr>
+              <td><strong>ESP32 Low-Level Firmware</strong></td>
+              <td>50Hz discrete PID velocity control and quadrature pulse counting operational over serial link.</td>
+              <td><span class="status-pill status-verified">Verified</span></td>
+            </tr>
+            <tr>
+              <td><strong>ROS 2 Humble Integration</strong></td>
+              <td>Workspace configured on Raspberry Pi 4B; telemetry pipeline publishes valid <code>/odom</code> and <code>/scan</code>.</td>
+              <td><span class="status-pill status-verified">Verified</span></td>
+            </tr>
+            <tr>
+              <td><strong>2D SLAM Room Mapping</strong></td>
+              <td>Occupancy grid generation verified in indoor room environments via manual teleoperation.</td>
+              <td><span class="status-pill status-verified">Verified</span></td>
+            </tr>
+            <tr>
+              <td><strong>UWB Anchor Ranging</strong></td>
+              <td>Four DWM3001C anchors operational on testbench; dynamic ranging while rover moves is under calibration.</td>
+              <td><span class="status-pill status-testing">In Testing</span></td>
+            </tr>
+            <tr>
+              <td><strong>EKF Multi-Sensor Fusion</strong></td>
+              <td>Odometry state estimation working; covariance matrix tuning for UWB range fusion is actively in progress.</td>
+              <td><span class="status-pill status-testing">In Tuning</span></td>
+            </tr>
+            <tr>
+              <td><strong>Autonomous Nav2 Waypoints</strong></td>
+              <td>Costmaps and path planners configured; full autonomous point-to-point indoor navigation is being tested.</td>
+              <td><span class="status-pill status-planned">In Development</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <p style="margin-top: 30px;">
         <strong>Immediate Next Steps:</strong>
@@ -341,7 +348,7 @@
 
     <!-- SECTION 7: REPOSITORY LINK -->
     <section class="journal-section" style="border-bottom:none; padding-bottom:0;">
-      <div style="padding: 32px; background: var(--paper); border: 1px solid var(--line); border-radius: 2px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap;">
+      <div class="journal-cta">
         <div>
           <strong style="display: block; font-size: 15px; margin-bottom: 6px; color: var(--text);">Explore the Code &amp; Workspace</strong>
           <p style="font-size: 13.5px; color: var(--muted); margin: 0;">

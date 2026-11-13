@@ -313,7 +313,16 @@ main, footer, #toast {
   margin: 0 0 24px;
 }
 
-.hero h1 em, h2 em, .detail h1 em {
+.hero-title-jp {
+  font-family: var(--serif);
+  font-size: clamp(38px, 5.2vw, 68px);
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  margin: 0 0 24px;
+}
+
+.hero h1 em, h2 em, .journal h1 em {
   font-family: var(--serif);
   font-weight: 400;
   font-style: italic;
@@ -412,7 +421,7 @@ main, footer, #toast {
   margin-bottom: 46px;
 }
 
-.section-head h2, .about h2, .detail h2 {
+.section-head h2, .about h2 {
   font-size: clamp(34px, 4.2vw, 54px);
   line-height: 1.12;
   letter-spacing: -0.06em;
@@ -828,13 +837,35 @@ footer small {
 }
 
 /* -------------------------------------------------------------
-   11. COLUMBUS MAXIMUS — ENGINEERING JOURNAL LAYOUT (V6.2)
+   11. COLUMBUS MAXIMUS — ENGINEERING JOURNAL LAYOUT (V6.3)
    ------------------------------------------------------------- */
 .journal {
-  padding-top: 55px;
-  padding-bottom: 120px;
-  max-width: 900px;
-  margin: 0 auto;
+  width: min(920px, calc(100% - 64px));
+  margin: 36px auto 100px;
+  padding: 52px 56px 80px;
+  background: var(--paper);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  box-shadow: var(--card-shadow);
+}
+
+.back {
+  font: 10px var(--mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 34px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.back:hover {
+  color: var(--accent);
+  transform: translateX(-3px);
 }
 
 .journal-header {
@@ -851,14 +882,14 @@ footer small {
 }
 
 .journal h1 {
-  font-size: clamp(42px, 6vw, 70px);
-  line-height: 1.05;
-  letter-spacing: -0.065em;
+  font-size: clamp(38px, 5.5vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -0.06em;
   margin: 0;
 }
 
 .journal-deck {
-  font-size: 16px;
+  font-size: 15.5px;
   line-height: 1.95;
   color: var(--muted);
   margin: 0 0 35px;
@@ -868,7 +899,7 @@ footer small {
 .project-hero-figure {
   margin: 0 0 45px;
   border: 1px solid var(--line);
-  background: var(--paper);
+  background: var(--panel);
   box-shadow: var(--card-shadow);
   overflow: hidden;
   border-radius: 2px;
@@ -878,8 +909,14 @@ footer small {
   width: 100%;
   height: auto;
   max-height: 520px;
-  object-fit: cover;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.03);
   display: block;
+  margin: 0 auto;
+}
+
+[data-theme="dark"] .project-hero-figure img {
+  background: rgba(0, 0, 0, 0.22);
 }
 
 .project-hero-figure figcaption {
@@ -899,7 +936,7 @@ footer small {
   padding: 24px 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  margin-bottom: 55px;
+  margin-bottom: 50px;
   font: 9.5px var(--mono);
   letter-spacing: 0.12em;
 }
@@ -927,8 +964,8 @@ footer small {
 }
 
 .journal-section h2 {
-  font-size: clamp(26px, 3.4vw, 38px);
-  line-height: 1.2;
+  font-size: clamp(25px, 3.2vw, 36px);
+  line-height: 1.22;
   letter-spacing: -0.05em;
   margin: 0 0 22px;
   font-weight: 600;
@@ -961,20 +998,73 @@ footer small {
   color: var(--text);
 }
 
-/* Clean Technical Tables */
+/* Code Snippet Container */
+.journal-code {
+  margin: 12px 0 16px;
+  padding: 10px 14px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.journal-code code {
+  font: 11px var(--mono);
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* Mathematical Formula Block */
+.math-block {
+  margin: 18px 0 22px;
+  padding: 16px 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 2px;
+  font: 14px var(--mono);
+  color: var(--text);
+  letter-spacing: 0.04em;
+  text-align: center;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.math-sym {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Clean Technical Tables with Overflow Container */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 24px 0 24px;
+  border: 1px solid var(--line);
+  background: var(--paper-solid);
+  border-radius: 2px;
+}
+
 .journal-table {
   width: 100%;
+  min-width: 580px;
   border-collapse: collapse;
-  margin: 26px 0 20px;
   font-size: 13px;
-  background: var(--paper);
-  border: 1px solid var(--line);
+  margin: 0;
+  border: none;
 }
 
 .journal-table th, .journal-table td {
   padding: 14px 18px;
   text-align: left;
   border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.journal-table tr:last-child td {
+  border-bottom: none;
 }
 
 .journal-table th {
@@ -992,6 +1082,49 @@ footer small {
 
 .journal-table td strong {
   color: var(--text);
+}
+
+/* Engineering Hurdles Grid & Cards */
+.hurdles-grid {
+  display: grid;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.hurdle-card {
+  padding: 20px 24px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 2px;
+}
+
+.hurdle-card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.hurdle-card p {
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Journal Bottom Callout */
+.journal-cta {
+  padding: 30px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 /* Engineering Status Badges */
@@ -1132,17 +1265,62 @@ footer small {
     flex-direction: column;
   }
 
+  .hero-title-jp {
+    font-size: clamp(32px, 8vw, 50px);
+    line-height: 1.22;
+  }
+
   .journal {
-    padding-top: 40px;
-    padding-bottom: 80px;
+    width: calc(100% - 36px);
+    padding: 38px 28px 60px;
+    margin: 24px auto 60px;
+  }
+
+  .journal h1 {
+    font-size: clamp(34px, 7vw, 48px);
   }
 
   .journal-title-row {
     flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
   }
 
   .journal-facts {
     grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .hurdle-card {
+    padding: 18px 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-title-jp {
+    font-size: clamp(28px, 8.5vw, 38px);
+  }
+
+  .journal {
+    width: calc(100% - 24px);
+    padding: 28px 18px 45px;
+    margin: 16px auto 45px;
+  }
+
+  .journal-facts {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .journal-cta {
+    padding: 22px 18px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .journal-cta .button {
+    width: 100%;
+    justify-content: center;
   }
 }
 
